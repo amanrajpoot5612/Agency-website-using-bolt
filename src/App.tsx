@@ -8,6 +8,7 @@ import { Testimonials } from './components/Testimonials';
 import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import data from './Data/Data.json'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -23,14 +24,14 @@ function App() {
   return (
     <div className="bg-white">
       <Navigation activeSection={activeSection} onNavigate={handleNavigate} />
-      <Hero onNavigate={handleNavigate} />
-      <Services />
-      <Pricing onNavigate={handleNavigate} />
-      <Portfolio />
-      <Testimonials />
-      <About />
+      <Hero onNavigate={handleNavigate} data = {data.hero} />
+      <Services data = {data.services} />
+      <Pricing onNavigate={handleNavigate} data = {data.pricing} />
+      <Portfolio data = {data.portfolio} />
+      <Testimonials data = {data.testimonials} />
+      <About data = {data.about} />
       <Contact />
-      <Footer />
+      <Footer data = {data.footer} />
     </div>
   );
 }

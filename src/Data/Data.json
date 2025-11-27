@@ -1,0 +1,351 @@
+{
+  "hero": {
+    "heading": {
+      "headingP1": "Craft Your",
+      "headingP2": "Digital Future"
+    },
+    "subHeading": "Transform your vision into reality with stunning web design and development. From sleek portfolios to full-featured applications, we deliver excellence.",
+    "buttons": {
+      "button1": "Get Started",
+      "button2": "View Portfolio"
+    },
+    "matrices": [
+      {
+        "label": "Projects Delivered",
+        "number": "10+"
+      },
+      {
+        "label": "Happy Clients",
+        "number": "5+"
+      },
+      {
+        "label": "Years Experience",
+        "number": "1+"
+      }
+    ]
+  },
+
+  "services": {
+    "heading": {
+      "headingP1": "Our",
+      "headingP2": " Services"
+    },
+    "subHeading": "We offer comprehensive web solutions tailored to elevate your online presence and drive results.",
+    "services": [
+      {
+        "icon": "Code2",
+        "title": "Web Development",
+        "description": "Build fast, scalable, and secure web applications with modern technologies."
+      },
+      {
+        "icon": "Palette",
+        "title": "Web Design",
+        "description": "Create stunning, user-friendly interfaces that captivate your audience."
+      },
+      {
+        "icon": "Zap",
+        "title": "Performance Optimization",
+        "description": "Ensure your website runs lightning-fast with optimized code and assets."
+      },
+      {
+        "icon": "Smartphone",
+        "title": "Responsive Design",
+        "description": "Flawless experience across all devices - desktop, tablet, and mobile."
+      },
+      {
+        "icon": "Package",
+        "title": "Custom Solutions",
+        "description": "Tailored solutions built specifically for your unique business needs."
+      },
+      {
+        "icon": "BarChart3",
+        "title": "SEO & Analytics",
+        "description": "Optimize your online presence and track performance with advanced analytics."
+      }
+    ]
+  },
+
+  "pricing": {
+    "heading": {
+      "headingP1": "Transparent",
+      "headingP2": " Pricing"
+    },
+    "subHeading": "Choose the perfect plan for your needs. All plans include professional support and quality assurance.",
+    "plans": [
+      {
+        "name": "Basic",
+        "price": "$49 - $299",
+        "description": "Perfect for getting started",
+        "badge": "Popular for Startups",
+        "features": [
+          "Predefined Design Templates",
+          "5-10 Page Website",
+          "Mobile Responsive",
+          "Basic SEO Setup",
+          "Contact Form",
+          "3 Month Support"
+        ],
+        "cta": "Get Started"
+      },
+      {
+        "name": "Premium",
+        "price": "$300 - $3999",
+        "description": "Ideal for growing businesses",
+        "badge": "Most Popular",
+        "highlight": true,
+        "features": [
+          "Custom Design & Customization",
+          "10-20 Page Website",
+          "Mobile Responsive",
+          "Advanced SEO Optimization",
+          "Contact & Newsletter Forms",
+          "Small Animations & Transitions",
+          "Custom Color Palette",
+          "6 Month Support",
+          "Analytics Integration"
+        ],
+        "cta": "Get Started"
+      },
+      {
+        "name": "Enterprise",
+        "price": "Custom",
+        "description": "For ambitious brands",
+        "badge": "Ultimate Control",
+        "features": [
+          "Fully Custom Design",
+          "Unlimited Pages",
+          "Mobile & Tablet Responsive",
+          "Advanced SEO & Performance",
+          "Advanced Forms & Integrations",
+          "SSL Certificate",
+          "Complex 3D Animations",
+          "Full Custom Branding",
+          "Custom Color Palette",
+          "E-commerce Integration",
+          "1 Year Support",
+          "Priority Support"
+        ],
+        "cta": "Get Started"
+      }
+    ],
+    "specialSection": {
+      "question": "Need Something Custom?",
+      "answer": "Let's discuss your unique requirements and create a tailored solution.",
+      "actionButton": "Schedule Consultation"
+    }
+  },
+
+  "testimonials": {
+    "heading": {
+      "headingP1": "What Our",
+      "headingP2": " Clients Say"
+    },
+    "subHeading": "Don't just take our word for it. Hear directly from our satisfied clients.",
+    "testimonials": [
+      {
+        "name": "Client Name",
+        "role": "Company/Position",
+        "content": "Add your testimonial here. Share what your clients say about working with you.",
+        "rating": 5,
+        "image": "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+      },
+      {
+        "name": "Client Name",
+        "role": "Company/Position",
+        "content": "Add your testimonial here. Share what your clients say about working with you.",
+        "rating": 5,
+        "image": "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+      },
+      {
+        "name": "Client Name",
+        "role": "Company/Position",
+        "content": "Add your testimonial here. Share what your clients say about working with you.",
+        "rating": 5,
+        "image": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+      }
+    ]
+  },
+
+  "portfolio": {
+    "heading": {
+      "headingP1": "Our",
+      "headingP2": " Work"
+    },
+    "subHeading": "Explore our portfolio of successful projects. From custom websites to complex applications.",
+    "projects": [
+      {
+        "id": 1,
+        "title": "Bugsy- Video Streaming Platfform",
+        "category": "Web Design",
+        "description": "Add your project description here",
+        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
+      },
+      {
+        "id": 2,
+        "title": "Bugsy- Video Streaming Platfform",
+        "category": "Development",
+        "description": "Add your project description here",
+        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
+      },
+      {
+        "id": 3,
+        "title": "Bugsy- Video Streaming Platfform",
+        "category": "Full Stack",
+        "description": "Add your project description here",
+        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
+      },
+      {
+        "id": 4,
+        "title": "Bugsy- Video Streaming Platfform",
+        "category": "Web Design",
+        "description": "Add your project description here",
+        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
+      },
+      {
+        "id": 5,
+        "title": "Bugsy- Video Streaming Platfform",
+        "category": "Development",
+        "description": "Add your project description here",
+        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
+      },
+      {
+        "id": 6,
+        "title": "Bugsy- Video Streaming Platfform",
+        "category": "E-commerce",
+        "description": "Add your project description here",
+        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
+      }
+    ],
+    "buttons": {
+      "button1": {
+        "label": "View All Projects"
+      }
+    }
+  },
+
+  "about": {
+    "heading": {
+      "headingP1": "About",
+      "headingP2": " Wired Creations"
+    },
+    "para": {
+      "para1": "Founded with a passion for digital excellence, Wired Creations is your partner in transforming ideas into stunning web experiences. We blend creativity with technical expertise to deliver solutions that not only look beautiful but perform exceptionally.",
+      "para2": "Our team of designers and developers are committed to understanding your business goals and creating digital solutions that drive real results. Whether you're a startup or an established brand, we're here to help you succeed online."
+    },
+    "textSections": [
+      {
+        "label": "Our Mission",
+        "text": "To empower businesses through innovative web design and development, creating digital products that inspire and convert."
+      },
+      {
+        "label": "Our Vision",
+        "text": "To be the most trusted web development partner for businesses looking to establish a strong digital presence and achieve their goals."
+      }
+    ],
+    "matrices": [
+      {
+        "label": "Years Experience",
+        "number": "1+"
+      },
+      {
+        "label": "Successfull Projects",
+        "number": "10+"
+      },
+      {
+        "label": "Happy Clients",
+        "number": "5+"
+      },
+      {
+        "label": "Client Satisfaction",
+        "number": "100%"
+      }
+    ]
+  },
+
+  "footer": {
+    "heading": {
+      "headingP1": "Wired",
+      "headingP2": " Creations"
+    },
+    "subHeading": "Transforming ideas into stunning web experiences that drive business growth.",
+    "sections": {
+      "quick": {
+        "heading": "Quick Links",
+        "links": [
+          {
+            "label": "Home",
+            "path": "#home"
+          },
+          {
+            "label": "Services",
+            "path": "#services"
+          },
+          {
+            "label": "Portfolio",
+            "path": "#portfolio"
+          },
+          {
+            "label": "Contact",
+            "path": "#contact"
+          }
+        ]
+      },
+      "services": {
+        "heading": "Services",
+        "links": [
+          {
+            "label": "Web Design",
+            "path": "#services"
+          },
+          {
+            "label": "Development",
+            "path": "#services"
+          },
+          {
+            "label": "E-Commerce",
+            "path": "#services"
+          },
+          {
+            "label": "Maintenance",
+            "path": "#services"
+          }
+        ]
+      },
+      "getInTouch": {
+        "heading": "Get In Touch",
+        "links": [
+          {
+            "label": "amanrajpoot5612@gmail.com",
+            "href": "mailto:amanrajpoot5612@gmail.com"
+          },
+          {
+            "label": "9355505920"
+          },
+          {
+            "label": "Noida, Uttar Praadesh, India",
+            "path": "https://www.google.com/maps?sca_esv=7575179a13efdb84&output=search&q=noida+uttar+pradesh&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIetxLMeWi1u_d0OMRvkClUba76WL62NDKV-tuv6_wPYBCwn1PrrOfPs6OFYogAUA80FYHcjgwjxnZp9Em-qnZn8N88c_ebmPbIi63FSDmv95Pcf_otdXo9FeYCGsvCNv2WI4CnnNZPbkgsxmielkQhjj8RWID-Gg_V2mrX9CBwas9No3GlQ&entry=mc&ved=1t:200715&ictx=111"
+          }
+        ]
+      }
+    },
+    "disclaimer": " Wired Creations. All rights reserved.",
+    "social": [
+      {
+        "label": "Facebook",
+        "url": "#"
+      },
+      {
+        "label": "Twitter",
+        "url": "#"
+      },
+      {
+        "label": "Linkedin",
+        "url": "https://www.linkedin.com/company/109635376/"
+      },
+      {
+        "label": "Instagram",
+        "url": "#"
+      }
+    ]
+  }
+}
