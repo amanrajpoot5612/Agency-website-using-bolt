@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { backend_uri } from "../config/config.js";
 import { Send, AlertCircle, CheckCircle } from "lucide-react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation.js";
+import CountryCodePicker from "../ui/ConutryCode.js";
 
 const Contact = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -162,6 +163,21 @@ const Contact = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Country Code
+                </label>
+                <CountryCodePicker></CountryCodePicker>
+                <input
+                  type=""
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800 transition-colors"
+                  placeholder="Your phone number"
+                />
+              </div>
               <div>
                 <label className="block text-sm font-semibold text-black mb-2">
                   Phone

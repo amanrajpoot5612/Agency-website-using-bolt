@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import CountryCodePicker from "../ui/ConutryCode";
 
 interface HeroProps {
   onNavigate: (section: string) => void;
@@ -23,7 +25,7 @@ interface HeroProps {
 export const Hero = ({ onNavigate, data }: HeroProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
-
+  const navigate = useNavigate();
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -179,7 +181,9 @@ export const Hero = ({ onNavigate, data }: HeroProps) => {
 
           <div className="flex gap-4 justify-center flex-wrap mb-12">
             <button
-              onClick={() => onNavigate("contact")}
+              onClick={() => {
+                navigate("/meeting")
+              }}
               className="px-8 py-3 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-all hover:scale-105 flex items-center gap-2"
             >
               {data.buttons.button1} <ArrowRight size={20} />
@@ -195,10 +199,15 @@ export const Hero = ({ onNavigate, data }: HeroProps) => {
 
         <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
           {data.matrices.map((matrix, idx) => (
-            <div className="animate-fadeInUp" style={{ animationDelay: `${0.2 + idx*0.2}` }}>
-            <div className="text-3xl font-bold text-amber-800">{matrix.number}</div>
-            <p className="text-gray-600 text-sm">{matrix.label}</p>
-          </div>
+            <div
+              className="animate-fadeInUp"
+              style={{ animationDelay: `${0.2 + idx * 0.2}` }}
+            >
+              <div className="text-3xl font-bold text-amber-800">
+                {matrix.number}
+              </div>
+              <p className="text-gray-600 text-sm">{matrix.label}</p>
+            </div>
           ))}
           {/* <div className="animate-fadeInUp" style={{ animationDelay: "0.2s" }}>
             <div className="text-3xl font-bold text-amber-800">{data.matrices}</div>
@@ -217,7 +226,7 @@ export const Hero = ({ onNavigate, data }: HeroProps) => {
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
         <div className="animate-pulse-soft">
-          <svg
+          {/* <svg
             className="w-6 h-6 text-black"
             fill="none"
             stroke="currentColor"
@@ -229,7 +238,7 @@ export const Hero = ({ onNavigate, data }: HeroProps) => {
               strokeWidth={2}
               d="M19 14l-7 7m0 0l-7-7m7 7V3"
             />
-          </svg>
+          </svg> */}
         </div>
       </div>
     </section>
