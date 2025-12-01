@@ -6,7 +6,7 @@
     },
     "subHeading": "Transform your vision into reality with stunning web design and development. From sleek portfolios to full-featured applications, we deliver excellence.",
     "buttons": {
-      "button1": "Get Started",
+      "button1": "Book A Call",
       "button2": "View Portfolio"
     },
     "matrices": [
@@ -143,22 +143,22 @@
     "subHeading": "Don't just take our word for it. Hear directly from our satisfied clients.",
     "testimonials": [
       {
-        "name": "Client Name",
-        "role": "Company/Position",
+        "name": "Deepak Kumar",
+        "role": "Individual",
         "content": "Add your testimonial here. Share what your clients say about working with you.",
         "rating": 5,
         "image": "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
       },
       {
-        "name": "Client Name",
-        "role": "Company/Position",
+        "name": "Gaurav Kashyap",
+        "role": "College Student",
         "content": "Add your testimonial here. Share what your clients say about working with you.",
         "rating": 5,
         "image": "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
       },
       {
-        "name": "Client Name",
-        "role": "Company/Position",
+        "name": "Lakshay Tyagi",
+        "role": "Fresher  ",
         "content": "Add your testimonial here. Share what your clients say about working with you.",
         "rating": 5,
         "image": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
@@ -219,6 +219,20 @@
     "buttons": {
       "button1": {
         "label": "View All Projects"
+      }
+    }
+  },
+
+  "meeting": {
+    "heading": {
+      "headingP1": "Book",
+      "headingP2": " a Consultation"
+    },
+    "subHeading": "Schedule a session to discuss your requirements and explore tailored solutions for your project.",
+   
+    "buttons": {
+      "button1": {
+        "label": "View on Full Page"
       }
     }
   },
