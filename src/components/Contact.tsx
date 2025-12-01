@@ -163,7 +163,7 @@ const Contact = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
+              {/* <div>
                 <label className="block text-sm font-semibold text-black mb-2">
                   Country Code
                 </label>
@@ -177,7 +177,7 @@ const Contact = () => {
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800 transition-colors"
                   placeholder="Your phone number"
                 />
-              </div>
+              </div> */}
               <div>
                 <label className="block text-sm font-semibold text-black mb-2">
                   Phone
