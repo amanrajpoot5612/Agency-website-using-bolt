@@ -131,7 +131,7 @@
     "specialSection": {
       "question": "Need Something Custom?",
       "answer": "Let's discuss your unique requirements and create a tailored solution.",
-      "actionButton": "Schedule Consultation"
+      "actionButton": "Schedule a Consultation"
     }
   },
 
@@ -145,21 +145,21 @@
       {
         "name": "Deepak Kumar",
         "role": "Individual",
-        "content": "Add your testimonial here. Share what your clients say about working with you.",
+        "content": "Working with this team was the easiest decision I made for my business. They took my half-baked idea and turned it into a clean, fast, and modern website that finally makes me look professional. The communication was sharp, and the delivery was faster than I expected.",
         "rating": 5,
         "image": "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
       },
       {
         "name": "Gaurav Kashyap",
         "role": "College Student",
-        "content": "Add your testimonial here. Share what your clients say about working with you.",
+        "content": "I needed a proper online presence for internships, and they delivered exactly what I was missing. The website looks polished, loads fast, and actually helped me get more callbacks. They guided me like a senior would — super helpful throughout.",
         "rating": 5,
         "image": "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
       },
       {
         "name": "Lakshay Tyagi",
         "role": "Fresher  ",
-        "content": "Add your testimonial here. Share what your clients say about working with you.",
+        "content": "I had zero experience showcasing my work online, but they built me a portfolio that genuinely stands out. Recruiters actually complimented the layout and clarity. This website became the biggest reason I started getting interviews.",
         "rating": 5,
         "image": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
       }
@@ -229,7 +229,7 @@
       "headingP2": " a Consultation"
     },
     "subHeading": "Schedule a session to discuss your requirements and explore tailored solutions for your project.",
-   
+
     "buttons": {
       "button1": {
         "label": "View on Full Page"
@@ -329,8 +329,8 @@
         "heading": "Get In Touch",
         "links": [
           {
-            "label": "amanrajpoot5612@gmail.com",
-            "href": "mailto:amanrajpoot5612@gmail.com"
+            "label": "contact.wiredcreations@gmail.com",
+            "href": "mailto:contact.wiredcreations@gmail.com"
           },
           {
             "label": "9355505920"
