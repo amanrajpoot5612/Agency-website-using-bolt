@@ -276,6 +276,86 @@
     ]
   },
 
+  "clientCaseStudy": {
+    "heading": {
+      "headingP1": "Case Study:",
+      "headingP2": " Building a Scalable Video Platform Inspired by YouTube"
+    },
+    "para": {
+      "para1": "A fast-growing content creator wanted a platform where users could upload videos, manage watch history, authenticate securely, and enjoy a smooth viewing experience—without relying solely on big platforms.",
+      "para2": "They approached us to build a custom video streaming application, designed for flexibility, data ownership, and long-term scalability."
+    },
+    "textSections": [
+      {
+        "label": "Our Mission",
+        "text": "Create a full, end-to-end video platform with modern engineering practices and real-world reliability."
+      },
+      {
+        "label": "The Challenge",
+        "text": {
+          
+        }
+      }
+    ],
+    "matrices": [
+      {
+        "label": "Years Experience",
+        "number": "1+"
+      },
+      {
+        "label": "Successfull Projects",
+        "number": "10+"
+      },
+      {
+        "label": "Happy Clients",
+        "number": "5+"
+      },
+      {
+        "label": "Client Satisfaction",
+        "number": "100%"
+      }
+    ]
+  },
+
+  "projectCaseStudy": {
+    "heading": {
+      "headingP1": "About",
+      "headingP2": " Wired Creations"
+    },
+    "para": {
+      "para1": "Founded with a passion for digital excellence, Wired Creations is your partner in transforming ideas into stunning web experiences. We blend creativity with technical expertise to deliver solutions that not only look beautiful but perform exceptionally.",
+      "para2": "Our team of designers and developers are committed to understanding your business goals and creating digital solutions that drive real results. Whether you're a startup or an established brand, we're here to help you succeed online."
+    },
+    "textSections": [
+      {
+        "label": "Our Mission",
+        "text": "To empower businesses through innovative web design and development, creating digital products that inspire and convert."
+      },
+      {
+        "label": "Our Vision",
+        "text": "To be the most trusted web development partner for businesses looking to establish a strong digital presence and achieve their goals."
+      }
+    ],
+    "matrices": [
+      {
+        "label": "Years Experience",
+        "number": "1+"
+      },
+      {
+        "label": "Successfull Projects",
+        "number": "10+"
+      },
+      {
+        "label": "Happy Clients",
+        "number": "5+"
+      },
+      {
+        "label": "Client Satisfaction",
+        "number": "100%"
+      }
+    ]
+  },
+
   "footer": {
     "heading": {
       "headingP1": "Wired",
