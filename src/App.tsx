@@ -9,6 +9,7 @@ import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import data from './Data/Data.json'
+import { Meeting } from './components/Meeting';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -27,6 +28,7 @@ function App() {
       <Hero onNavigate={handleNavigate} data = {data.hero} />
       <Services data = {data.services} />
       <Pricing onNavigate={handleNavigate} data = {data.pricing} />
+      {/* <Meeting data = {data.meeting} /> */}
       <Portfolio data = {data.portfolio} />
       <Testimonials data = {data.testimonials} />
       <About data = {data.about} />
