@@ -1,101 +1,130 @@
-import { useState } from 'react';
-import { Send, AlertCircle, CheckCircle } from 'lucide-react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import React, { useState } from "react";
+import { backend_uri } from "../config/config.js";
+import { Send, AlertCircle, CheckCircle } from "lucide-react";
+import { useScrollAnimation } from "../hooks/useScrollAnimation.js";
 
-export const Contact = () => {
+const Contact = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    projectType: '',
-    budget: '',
-    timeline: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    projectType: "",
+    budget: "",
+    timeline: "",
+    message: "",
   });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [status, setStatus] = useState("idle");
+  const [error, setError] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus('loading');
+    setStatus("loading");
+    setError("");
 
     try {
-      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`;
-
-      const response = await fetch(apiUrl, {
-        method: 'POST',
+      const apiURL = `${backend_uri}/schedule-consultation`;
+      const response = await fetch(apiURL, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        throw new Error(data.message || "Unknown error");
       }
 
-      setStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        projectType: '',
-        budget: '',
-        timeline: '',
-        message: '',
-      });
+      console.log("data", data);
+      
+
+      setStatus("success");
+
+      // setFormData({
+      //   name: "",
+      //   email: "",
+      //   phone: "",
+      //   projectType: "",
+      //   budget: "",
+      //   timeline: "",
+      //   message: "",
+      // });
 
       setTimeout(() => {
-        setStatus('idle');
-      }, 5000);
-    } catch (error) {
-      setStatus('error');
-      setErrorMessage('Failed to send message. Please try again.');
+        setStatus("idle");
+      }, 4000);
+    } catch (err) {
+      setStatus("error");
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Something went wrong");
+      }
       setTimeout(() => {
-        setStatus('idle');
-      }, 5000);
+        setStatus("idle");
+      }, 4000);
     }
   };
-
   return (
-    <section ref={ref} id="contact" className="min-h-screen bg-gradient-to-b from-white to-gray-50 py-20">
+    <section
+      ref={ref}
+      id="contact"
+      className="min-h-screen bg-gradient-to-b from-white to-gray-50 py-20"
+    >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`mb-12 transition-all duration-700 ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
+        <div
+          className={`mb-12 transition-all duration-700 ${
+            isVisible ? "animate-fadeInUp" : "opacity-0"
+          }`}
+        >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="text-black">Get In</span>
             <span className="text-amber-800"> Touch</span>
           </h2>
           <p className="text-gray-600 text-lg">
-            Ready to start your next project? Let's talk about your ideas and how we can help bring them to life.
+            Ready to start your next project? Let's talk about your ideas and
+            how we can help bring them to life.
           </p>
         </div>
 
-        <div className={`bg-white rounded-xl border border-gray-200 p-8 sm:p-12 transition-all duration-700 ${
-          isVisible ? 'animate-fadeInUp' : 'opacity-0'
-        }`} style={{ animationDelay: '0.2s' }}>
-          {status === 'success' && (
+        <div
+          className={`bg-white rounded-xl border border-gray-200 p-8 sm:p-12 transition-all duration-700 ${
+            isVisible ? "animate-fadeInUp" : "opacity-0"
+          }`}
+          style={{ animationDelay: "0.2s" }}
+        >
+          {status === "success" && (
             <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex gap-3">
               <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-semibold text-green-900">Message Sent!</h3>
-                <p className="text-green-700 text-sm">We'll get back to you as soon as possible.</p>
+                <p className="text-green-700 text-sm">
+                  We'll get back to you as soon as possible.
+                </p>
               </div>
             </div>
           )}
 
-          {status === 'error' && (
+          {status === "error" && (
             <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex gap-3">
               <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-semibold text-red-900">Error</h3>
-                <p className="text-red-700 text-sm">{errorMessage}</p>
+                <p className="text-red-700 text-sm">{error}</p>
               </div>
             </div>
           )}
@@ -103,7 +132,9 @@ export const Contact = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-semibold text-black mb-2">Name</label>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Name
+                </label>
                 <input
                   type="text"
                   name="name"
@@ -115,7 +146,9 @@ export const Contact = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-black mb-2">Email</label>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Email
+                </label>
                 <input
                   type="email"
                   name="email"
@@ -130,7 +163,9 @@ export const Contact = () => {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-semibold text-black mb-2">Phone</label>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Phone
+                </label>
                 <input
                   type="tel"
                   name="phone"
@@ -142,7 +177,9 @@ export const Contact = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-black mb-2">Project Type</label>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Project Type
+                </label>
                 <select
                   name="projectType"
                   value={formData.projectType}
@@ -150,19 +187,24 @@ export const Contact = () => {
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800 transition-colors"
                 >
-                  <option value="">Select a project type</option>
-                  <option value="Basic Website">Basic Website</option>
-                  <option value="E-Commerce">E-Commerce</option>
-                  <option value="Web Application">Web Application</option>
-                  <option value="Mobile App">Mobile App</option>
-                  <option value="Custom Solution">Custom Solution</option>
+                  <option value="" selected disabled>Select a project type</option>
+                  <option value="basic-webiste">Basic Website</option>
+                  <option value="business-website">Business Website</option>
+                  <option value="landing-page">Landing Website</option>
+                  <option value="e-commerce">E-Commerce</option>
+                  <option value="web-application">Web Application</option>
+                  <option value="saas-platform">SaaS Platform</option>
+                  <option value="mobile-apps">Mobile App</option>
+                  <option value="custom-solution">Custom Solution ( Not Sure)</option>
                 </select>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-semibold text-black mb-2">Budget Range</label>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Budget Range
+                </label>
                 <select
                   name="budget"
                   value={formData.budget}
@@ -170,15 +212,19 @@ export const Contact = () => {
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800 transition-colors"
                 >
-                  <option value="">Select budget range</option>
-                  <option value="$5,000 - $10,000">$5,000 - $10,000</option>
-                  <option value="$10,000 - $25,000">$10,000 - $25,000</option>
-                  <option value="$25,000 - $50,000">$25,000 - $50,000</option>
+                  <option value="" disabled selected>Select budget range</option>
+                  <option value="$49 - $299">$49 - $299</option>
+                  <option value="$300 - $999">$300 - $999</option>
+                  <option value="$1,000 - $9,999">$1,000 - $9,999</option>
+                  <option value="$10,000 - $29,999">$10,000 - $29,999</option>
+                  <option value="$30,000 - $49,999">$30,000 - $49,999</option>
                   <option value="$50,000+">$50,000+</option>
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-black mb-2">Timeline</label>
+                <label className="block text-sm font-semibold text-black mb-2">
+                  Timeline
+                </label>
                 <select
                   name="timeline"
                   value={formData.timeline}
@@ -186,17 +232,20 @@ export const Contact = () => {
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800 transition-colors"
                 >
-                  <option value="">Select timeline</option>
+                  <option value="" disabled selected>Select timeline</option>
                   <option value="ASAP">ASAP</option>
                   <option value="1-4 weeks">1-4 weeks</option>
                   <option value="1-3 months">1-3 months</option>
-                  <option value="3+ months">3+ months</option>
+                  <option value="3-6 months">3-6 months</option>
+                  <option value="6+ months">6+ months</option>
                 </select>
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-black mb-2">Project Details</label>
+              <label className="block text-sm font-semibold text-black mb-2">
+                Project Details
+              </label>
               <textarea
                 name="message"
                 value={formData.message}
@@ -209,10 +258,10 @@ export const Contact = () => {
 
             <button
               type="submit"
-              disabled={status === 'loading'}
+              disabled={status === "loading"}
               className="w-full bg-black text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              {status === 'loading' ? (
+              {status === "loading" ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                   Sending...
@@ -230,3 +279,5 @@ export const Contact = () => {
     </section>
   );
 };
+
+export { Contact };
