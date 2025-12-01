@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import { useNavigate } from "react-router-dom";
 
 interface PricingProps {
   onNavigate: (section: string) => void;
@@ -28,6 +29,8 @@ interface PricingProps {
 
 export const Pricing = ({ onNavigate, data }: PricingProps) => {
   const { ref, isVisible } = useScrollAnimation();
+
+  const navigate = useNavigate()
 
   return (
     <section
@@ -125,7 +128,9 @@ export const Pricing = ({ onNavigate, data }: PricingProps) => {
             {data.specialSection.answer}
           </p>
           <button
-            onClick={() => onNavigate("contact")}
+            onClick={() => {
+              navigate("/meeting")
+            }}
             className="px-8 py-3 bg-amber-800 text-white rounded-lg font-semibold hover:bg-amber-900 transition-all"
           >
             {data.specialSection.actionButton}

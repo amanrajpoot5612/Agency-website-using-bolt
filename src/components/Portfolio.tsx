@@ -23,6 +23,9 @@ interface PortfolioProps {
   };
 }
 
+
+
+
 export const Portfolio = ({ data }: PortfolioProps) => {
   const { ref, isVisible } = useScrollAnimation();
 
@@ -92,9 +95,9 @@ export const Portfolio = ({ data }: PortfolioProps) => {
           }`}
           style={{ animationDelay: "0.6s" }}
         >
-          <button className="px-8 py-3 border-2 border-black text-black rounded-lg font-semibold hover:bg-black hover:text-white transition-all">
+          {/* <button className="px-8 py-3 border-2 border-black text-black rounded-lg font-semibold hover:bg-black hover:text-white transition-all">
             {data.buttons.button1.label}
-          </button>
+          </button> */}
         </div>
       </div>
     </section>
