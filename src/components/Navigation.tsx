@@ -1,4 +1,5 @@
-import { useState } from 'react';
+// CHANGE REASON: Use a glass-style sticky nav with a single CTA and mobile overlay for a more premium, conversion-focused top bar.
+import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 interface NavigationProps {
@@ -8,6 +9,7 @@ interface NavigationProps {
 
 export const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const links = [
     { id: 'home', label: 'Home' },
@@ -19,32 +21,99 @@ export const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
     { id: 'contact', label: 'Contact' },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleNavClick = (id: string) => {
     onNavigate(id);
     setIsOpen(false);
   };
 
+  const handlePrimaryAction = () => {
+    onNavigate('contact');
+    setIsOpen(false);
+  };
+
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md z-50 border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 border-b border-white/5 transition-shadow duration-300 ${
+          isScrolled ? 'shadow-2xl shadow-cyan-500/10' : ''
+        }`}
+      >
+        <div
+          className={`mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 transition-colors ${
+            isScrolled ? 'bg-navy-950/95 backdrop-blur-xl' : 'bg-navy-950/85 backdrop-blur-lg'
+          }`}
+        >
           <div
             onClick={() => handleNavClick('home')}
-            className="text-2xl font-bold cursor-pointer hover:opacity-80 transition-opacity"
+            className="cursor-pointer text-2xl font-semibold tracking-tight text-white transition-opacity hover:opacity-80"
           >
-            <span className="text-black">Wired</span>
-            <span className="text-amber-800"> Creations</span>
+            <span className="text-white">Wired</span>
+            <span className="text-cyan-400"> Creations</span>
           </div>
 
-          <div className="hidden md:flex gap-8">
+          <div className="hidden items-center gap-8 md:flex">
             {links.map((link) => (
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
                 className={`text-sm font-medium transition-all ${
                   activeSection === link.id
-                    ? 'text-amber-800 border-b-2 border-amber-800'
-                    : 'text-gray-700 hover:text-amber-800'
+                    ? 'text-cyan-400 border-b-2 border-cyan-400'
+                    : 'text-gray-300 hover:text-cyan-400'
+                }`}
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-4">
+            <button
+              onClick={handlePrimaryAction}
+              className="hidden rounded-full bg-cyan-400 px-5 py-2 text-sm font-semibold text-navy-950 transition hover:bg-cyan-500 md:inline-flex"
+            >
+              Book a Call
+            </button>
+            <button
+              className="rounded-full p-2 text-cyan-300 hover:text-cyan-100 md:hidden"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {isOpen && (
+        <div className="fixed inset-0 z-50 overflow-hidden bg-navy-950/95 px-8 pt-8 backdrop-blur-xl md:hidden">
+          <div className="flex items-center justify-between">
+            <div className="text-lg font-semibold text-white">Menu</div>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="rounded-full bg-white/5 p-3 text-cyan-400 transition hover:bg-white/10"
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+          <div className="mt-12 space-y-6">
+            {links.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => handleNavClick(link.id)}
+                className={`block w-full rounded-3xl border border-white/5 px-5 py-4 text-left text-2xl font-semibold transition-colors ${
+                  activeSection === link.id
+                    ? 'text-cyan-400 bg-white/5'
+                    : 'text-gray-300 hover:text-cyan-400'
                 }`}
               >
                 {link.label}
@@ -53,31 +122,13 @@ export const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
           </div>
 
           <button
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={handlePrimaryAction}
+            className="mt-10 w-full rounded-full bg-cyan-400 px-6 py-4 text-center text-lg font-semibold text-navy-950 transition hover:bg-cyan-500"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            Book a Call
           </button>
         </div>
-
-        {isOpen && (
-          <div className="md:hidden pb-4 border-t border-gray-200">
-            {links.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleNavClick(link.id)}
-                className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors ${
-                  activeSection === link.id
-                    ? 'text-amber-800 bg-amber-50'
-                    : 'text-gray-700 hover:text-amber-800'
-                }`}
-              >
-                {link.label}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-    </nav>
+      )}
+    </>
   );
 };

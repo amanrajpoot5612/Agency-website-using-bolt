@@ -28,7 +28,7 @@ export const About = ({ data }: AboutProps) => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={ref} id="about" className="min-h-screen bg-white py-20">
+    <section ref={ref} id="about" className="min-h-screen bg-navy-950 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div
@@ -37,23 +37,23 @@ export const About = ({ data }: AboutProps) => {
             }`}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              <span className="text-black">{data.heading.headingP1}</span>
-              <span className="text-amber-800">{data.heading.headingP2}</span>
+              <span className="text-white">{data.heading.headingP1}</span>
+              <span className="text-cyan-400">{data.heading.headingP2}</span>
             </h2>
-            <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+            <p className="text-gray-300 text-lg mb-6 leading-relaxed">
               {data.para.para1}
             </p>
-            <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+            <p className="text-gray-300 text-lg mb-6 leading-relaxed">
               {data.para.para2}
             </p>
             <div className="space-y-4">
               {data.textSections.map((textSection) => {
                 return (
                   <div>
-                    <h3 className="text-xl font-bold text-black mb-2">
+                    <h3 className="text-xl font-bold text-white mb-2">
                       {textSection.label}
                     </h3>
-                    <p className="text-gray-600">{textSection.text}</p>
+                    <p className="text-gray-300">{textSection.text}</p>
                   </div>
                 );
               })}
@@ -78,14 +78,14 @@ export const About = ({ data }: AboutProps) => {
             {
               data.matrices.map((segment, idx) => (
                   (idx == 0 || idx == 3)
-                    ? <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-8 rounded-xl border border-amber-200">
-              <div className="text-4xl font-bold text-amber-800 mb-2">{segment.number}</div>
-              <p className="text-amber-900">{segment.label}</p>
+                    ? <div className="bg-gradient-to-br from-cyan-400/10 to-cyan-500/5 p-8 rounded-xl border border-cyan-400/30">
+              <div className="text-4xl font-bold text-cyan-400 mb-2">{segment.number}</div>
+              <p className="text-gray-300">{segment.label}</p>
             </div>
                     : 
-                    <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-xl border border-gray-200">
-              <div className="text-4xl font-bold text-black mb-2">{segment.number}</div>
-              <p className="text-gray-700">{segment.label}</p>
+                    <div className="bg-gradient-to-br from-navy-900 to-navy-800 p-8 rounded-xl border border-cyan-400/20">
+              <div className="text-4xl font-bold text-white mb-2">{segment.number}</div>
+              <p className="text-gray-300">{segment.label}</p>
             </div>
                   
               ))

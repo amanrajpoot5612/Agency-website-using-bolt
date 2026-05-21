@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { backend_uri } from "../config/config.js";
 import { Send, AlertCircle, CheckCircle } from "lucide-react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation.js";
-import CountryCodePicker from "../ui/ConutryCode.js";
 
 const Contact = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -54,16 +53,15 @@ const Contact = () => {
       
 
       setStatus("success");
-
-      // setFormData({
-      //   name: "",
-      //   email: "",
-      //   phone: "",
-      //   projectType: "",
-      //   budget: "",
-      //   timeline: "",
-      //   message: "",
-      // });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        projectType: "",
+        budget: "",
+        timeline: "",
+        message: "",
+      });
 
       setTimeout(() => {
         setStatus("idle");
@@ -84,7 +82,7 @@ const Contact = () => {
     <section
       ref={ref}
       id="contact"
-      className="min-h-screen bg-gradient-to-b from-white to-gray-50 py-20"
+      className="min-h-screen bg-gradient-to-b from-navy-950 to-navy-900 py-20"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
@@ -93,39 +91,39 @@ const Contact = () => {
           }`}
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="text-black">Get In</span>
-            <span className="text-amber-800"> Touch</span>
+            <span className="text-white">Get In</span>
+            <span className="text-cyan-400"> Touch</span>
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-300 text-lg">
             Ready to start your next project? Let's talk about your ideas and
             how we can help bring them to life.
           </p>
         </div>
 
         <div
-          className={`bg-white rounded-xl border border-gray-200 p-8 sm:p-12 transition-all duration-700 ${
+          className={`bg-navy-900 rounded-xl border border-cyan-400/30 p-8 sm:p-12 transition-all duration-700 ${
             isVisible ? "animate-fadeInUp" : "opacity-0"
           }`}
           style={{ animationDelay: "0.2s" }}
         >
           {status === "success" && (
-            <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex gap-3">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+            <div className="mb-6 p-4 bg-green-900/30 border border-green-500/50 rounded-lg flex gap-3" aria-live="polite">
+              <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
               <div>
-                <h3 className="font-semibold text-green-900">Message Sent!</h3>
-                <p className="text-green-700 text-sm">
-                  We'll get back to you as soon as possible.
+                <h3 className="font-semibold text-green-300">Message Sent!</h3>
+                <p className="text-green-300 text-sm">
+                  Thanks for reaching out — we'll reply within one business day.
                 </p>
               </div>
             </div>
           )}
 
           {status === "error" && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex gap-3">
-              <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+            <div className="mb-6 p-4 bg-red-900/30 border border-red-500/50 rounded-lg flex gap-3">
+              <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
               <div>
-                <h3 className="font-semibold text-red-900">Error</h3>
-                <p className="text-red-700 text-sm">{error}</p>
+                <h3 className="font-semibold text-red-300">Error</h3>
+                <p className="text-red-300 text-sm">{error}</p>
               </div>
             </div>
           )}
@@ -133,7 +131,7 @@ const Contact = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-semibold text-black mb-2">
+                <label className="block text-sm font-semibold text-white mb-2">
                   Name
                 </label>
                 <input
@@ -142,12 +140,12 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800 transition-colors"
+                  className="w-full px-4 py-2 border border-cyan-400/30 rounded-lg bg-navy-950 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
                   placeholder="Your name"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-black mb-2">
+                <label className="block text-sm font-semibold text-white mb-2">
                   Email
                 </label>
                 <input
@@ -156,7 +154,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800 transition-colors"
+                  className="w-full px-4 py-2 border border-cyan-400/30 rounded-lg bg-navy-950 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
                   placeholder="your@email.com"
                 />
               </div>
@@ -179,7 +177,7 @@ const Contact = () => {
                 />
               </div> */}
               <div>
-                <label className="block text-sm font-semibold text-black mb-2">
+                <label className="block text-sm font-semibold text-white mb-2">
                   Phone
                 </label>
                 <input
@@ -188,12 +186,12 @@ const Contact = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800 transition-colors"
+                  className="w-full px-4 py-2 border border-cyan-400/30 rounded-lg bg-navy-950 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
                   placeholder="Your phone number"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-black mb-2">
+                <label className="block text-sm font-semibold text-white mb-2">
                   Project Type
                 </label>
                 <select
@@ -201,24 +199,24 @@ const Contact = () => {
                   value={formData.projectType}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800 transition-colors"
+                  className="w-full px-4 py-2 border border-cyan-400/30 rounded-lg bg-navy-950 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
                 >
-                  <option value="" selected disabled>Select a project type</option>
-                  <option value="basic-webiste">Basic Website</option>
+                  <option value="" disabled>Select a project type</option>
+                  <option value="basic-website">Basic Website</option>
                   <option value="business-website">Business Website</option>
-                  <option value="landing-page">Landing Website</option>
+                  <option value="landing-page">Landing Page</option>
                   <option value="e-commerce">E-Commerce</option>
                   <option value="web-application">Web Application</option>
                   <option value="saas-platform">SaaS Platform</option>
-                  <option value="mobile-apps">Mobile App</option>
-                  <option value="custom-solution">Custom Solution ( Not Sure)</option>
+                  <option value="mobile-app">Mobile App</option>
+                  <option value="custom-solution">Custom Solution</option>
                 </select>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-semibold text-black mb-2">
+                <label className="block text-sm font-semibold text-white mb-2">
                   Budget Range
                 </label>
                 <select
@@ -226,19 +224,17 @@ const Contact = () => {
                   value={formData.budget}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800 transition-colors"
+                  className="w-full px-4 py-2 border border-cyan-400/30 rounded-lg bg-navy-950 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
                 >
-                  <option value="" disabled selected>Select budget range</option>
-                  <option value="$49 - $299">$49 - $299</option>
-                  <option value="$300 - $999">$300 - $999</option>
-                  <option value="$1,000 - $9,999">$1,000 - $9,999</option>
-                  <option value="$10,000 - $29,999">$10,000 - $29,999</option>
-                  <option value="$30,000 - $49,999">$30,000 - $49,999</option>
+                  <option value="" disabled>Select budget range</option>
+                  <option value="$4,900 - $9,900">$4,900 - $9,900</option>
+                  <option value="$10,000 - $24,900">$10,000 - $24,900</option>
+                  <option value="$25,000 - $49,900">$25,000 - $49,900</option>
                   <option value="$50,000+">$50,000+</option>
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-black mb-2">
+                <label className="block text-sm font-semibold text-white mb-2">
                   Timeline
                 </label>
                 <select
@@ -246,9 +242,9 @@ const Contact = () => {
                   value={formData.timeline}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800 transition-colors"
+                  className="w-full px-4 py-2 border border-cyan-400/30 rounded-lg bg-navy-950 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
                 >
-                  <option value="" disabled selected>Select timeline</option>
+                  <option value="" disabled>Select timeline</option>
                   <option value="ASAP">ASAP</option>
                   <option value="1-4 weeks">1-4 weeks</option>
                   <option value="1-3 months">1-3 months</option>
@@ -259,7 +255,7 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-black mb-2">
+              <label className="block text-sm font-semibold text-white mb-2">
                 Project Details
               </label>
               <textarea
@@ -267,7 +263,7 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={5}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-800 transition-colors resize-none"
+                className="w-full px-4 py-2 border border-cyan-400/30 rounded-lg bg-navy-950 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                 placeholder="Tell us about your project, goals, and any specific requirements..."
               />
             </div>
@@ -275,7 +271,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full bg-black text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full bg-cyan-400 text-navy-950 py-3 px-6 rounded-lg font-semibold hover:bg-cyan-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {status === "loading" ? (
                 <>

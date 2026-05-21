@@ -24,7 +24,7 @@ const MainLayout = () => {
 
   return (
     <>
-        <div className="bg-white">
+        <div className="bg-navy-950">
               <Navigation activeSection={activeSection} onNavigate={handleNavigate} />
               <Hero onNavigate={handleNavigate} data = {data.hero} />
               <Services data = {data.services} />

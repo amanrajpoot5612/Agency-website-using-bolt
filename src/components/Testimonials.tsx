@@ -23,14 +23,14 @@ export const Testimonials = ({ onNavigate, data }: TestimonialsProps) => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={ref} id="testimonials" className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-20">
+    <section ref={ref} id="testimonials" className="min-h-screen bg-gradient-to-b from-navy-950 to-navy-900 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`mb-16 transition-all duration-700 ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="text-black">{data.heading.headingP1}</span>
-            <span className="text-amber-800">{data.heading.headingP2}</span>
+            <span className="text-white">{data.heading.headingP1}</span>
+            <span className="text-cyan-400">{data.heading.headingP2}</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl">
+          <p className="text-gray-300 text-lg max-w-2xl">
             {data.subHeading}
           </p>
         </div>
@@ -40,7 +40,7 @@ export const Testimonials = ({ onNavigate, data }: TestimonialsProps) => {
           {data.testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`group p-8 bg-white border border-gray-200 rounded-xl hover:shadow-lg transition-all duration-700 ${
+              className={`group p-8 bg-navy-900 border border-cyan-400/30 rounded-xl hover:shadow-lg hover:shadow-cyan-400/10 transition-all duration-700 ${
                 isVisible ? 'animate-fadeInUp' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 0.15}s` }}
@@ -52,17 +52,17 @@ export const Testimonials = ({ onNavigate, data }: TestimonialsProps) => {
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <h4 className="font-bold text-black">{testimonial.name}</h4>
-                  <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                  <h4 className="font-bold text-white">{testimonial.name}</h4>
+                  <p className="text-gray-300 text-sm">{testimonial.role}</p>
                 </div>
               </div>
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-amber-800 text-amber-800" />
+                  <Star key={i} className="w-5 h-5 fill-cyan-400 text-cyan-400" />
                 ))}
               </div>
 
-              <p className="text-gray-700 mb-6 italic">{testimonial.content}</p>
+              <p className="text-gray-300 mb-6 italic">{testimonial.content}</p>
 
               {/* <div className="flex items-center gap-4">
                 <img

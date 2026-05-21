@@ -1,10 +1,10 @@
 {
   "hero": {
     "heading": {
-      "headingP1": "Craft Your",
-      "headingP2": "Digital Future"
+      "headingP1": "We build digital products",
+      "headingP2": "that actually ship."
     },
-    "subHeading": "Transform your vision into reality with stunning web design and development. From sleek portfolios to full-featured applications, we deliver excellence.",
+    "subHeading": "Launch products with polished design, reliable engineering, and real momentum — not just beautiful visuals.",
     "buttons": {
       "button1": "Book A Call",
       "button2": "View Portfolio"
@@ -70,68 +70,59 @@
       "headingP1": "Transparent",
       "headingP2": " Pricing"
     },
-    "subHeading": "Choose the perfect plan for your needs. All plans include professional support and quality assurance.",
+    "subHeading": "Real agency estimates for digital products, not one-size-fits-all packages.",
     "plans": [
       {
-        "name": "Basic",
-        "price": "$49 - $299",
-        "description": "Perfect for getting started",
-        "badge": "Popular for Startups",
+        "name": "Starter",
+        "price": "$4,900 - $9,900",
+        "description": "Launch a polished website with clear messaging and mobile performance.",
+        "badge": "Best for founders",
         "features": [
-          "Predefined Design Templates",
-          "5-10 Page Website",
-          "Mobile Responsive",
-          "Basic SEO Setup",
-          "Contact Form",
-          "3 Month Support"
+          "Custom landing page or brochure site",
+          "Responsive design",
+          "Contact form and analytics",
+          "SEO-ready structure",
+          "2-week launch timeline",
+          "3 months support"
         ],
-        "cta": "Get Started"
+        "cta": "Book a Call"
       },
       {
-        "name": "Premium",
-        "price": "$300 - $3999",
-        "description": "Ideal for growing businesses",
+        "name": "Growth",
+        "price": "$12,000 - $24,900",
+        "description": "Build a conversion-focused site or product MVP with polished interactions.",
         "badge": "Most Popular",
         "highlight": true,
         "features": [
-          "Custom Design & Customization",
-          "10-20 Page Website",
-          "Mobile Responsive",
-          "Advanced SEO Optimization",
-          "Contact & Newsletter Forms",
-          "Small Animations & Transitions",
-          "Custom Color Palette",
-          "6 Month Support",
-          "Analytics Integration"
+          "Custom UI & branding",
+          "CMS or landing page system",
+          "Advanced SEO and analytics",
+          "Lead capture and automations",
+          "Performance optimization",
+          "6 months support"
         ],
-        "cta": "Get Started"
+        "cta": "Book a Call"
       },
       {
-        "name": "Enterprise",
+        "name": "Scale",
         "price": "Custom",
-        "description": "For ambitious brands",
-        "badge": "Ultimate Control",
+        "description": "A tailored digital platform for ambitious brands and integrated workflows.",
+        "badge": "Enterprise-ready",
         "features": [
-          "Fully Custom Design",
-          "Unlimited Pages",
-          "Mobile & Tablet Responsive",
-          "Advanced SEO & Performance",
-          "Advanced Forms & Integrations",
-          "SSL Certificate",
-          "Complex 3D Animations",
-          "Full Custom Branding",
-          "Custom Color Palette",
-          "E-commerce Integration",
-          "1 Year Support",
-          "Priority Support"
+          "Full product strategy and scope",
+          "Complex web app or platform",
+          "API and third-party integrations",
+          "Performance and security",
+          "Design systems and motion",
+          "Dedicated support"
         ],
-        "cta": "Get Started"
+        "cta": "Book a Call"
       }
     ],
     "specialSection": {
-      "question": "Need Something Custom?",
-      "answer": "Let's discuss your unique requirements and create a tailored solution.",
-      "actionButton": "Schedule a Consultation"
+      "question": "Ready to define your next product?",
+      "answer": "Start with a discovery call so we can scope your project, timeline, and outcomes clearly.",
+      "actionButton": "Book a Call"
     }
   },
 
@@ -171,48 +162,48 @@
       "headingP1": "Our",
       "headingP2": " Work"
     },
-    "subHeading": "Explore our portfolio of successful projects. From custom websites to complex applications.",
+    "subHeading": "Explore case studies from digital products, platforms, and founder-led launches built for growth.",
     "projects": [
       {
         "id": 1,
-        "title": "Bugsy- Video Streaming Platfform",
-        "category": "Web Design",
-        "description": "Add your project description here",
+        "title": "Bugsy",
+        "category": "Product",
+        "description": "A scalable video platform with polished discovery and premium playback experiences.",
         "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
       },
       {
         "id": 2,
-        "title": "Bugsy- Video Streaming Platfform",
-        "category": "Development",
-        "description": "Add your project description here",
+        "title": "Pulse Commerce",
+        "category": "E-commerce",
+        "description": "A conversion-focused storefront built for faster checkout and higher average order value.",
         "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
       },
       {
         "id": 3,
-        "title": "Bugsy- Video Streaming Platfform",
-        "category": "Full Stack",
-        "description": "Add your project description here",
+        "title": "Nexa CRM",
+        "category": "Platform",
+        "description": "A sales dashboard that surfaces action-ready insights and simplifies team workflows.",
         "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
       },
       {
         "id": 4,
-        "title": "Bugsy- Video Streaming Platfform",
+        "title": "FieldGuide",
         "category": "Web Design",
-        "description": "Add your project description here",
+        "description": "A storyteller-led marketing site with custom motion and polished conversion points.",
         "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
       },
       {
         "id": 5,
-        "title": "Bugsy- Video Streaming Platfform",
-        "category": "Development",
-        "description": "Add your project description here",
+        "title": "ScaleHub",
+        "category": "Full Stack",
+        "description": "A data-rich dashboard built for fast decision-making and easier product management.",
         "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
       },
       {
         "id": 6,
-        "title": "Bugsy- Video Streaming Platfform",
-        "category": "E-commerce",
-        "description": "Add your project description here",
+        "title": "LaunchPad",
+        "category": "Startup",
+        "description": "A launch landing page designed to turn early traction into inbound interest.",
         "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
       }
     ],
