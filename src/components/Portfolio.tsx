@@ -85,7 +85,7 @@ export const Portfolio = ({ data }: PortfolioProps) => {
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {data.projects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <div
               key={project.id}
               className={`group relative overflow-hidden rounded-xl transition-all duration-700 ${

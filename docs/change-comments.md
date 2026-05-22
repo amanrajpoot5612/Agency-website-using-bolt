@@ -57,4 +57,18 @@ This document captures the reasoning behind the edits we will make (based on `ch
 
 ---
 
+## Phase 1 implementation — multi-page architecture
+- Added `src/Layout/PageLayout.tsx` to provide a shared wrapper for all secondary pages.
+- Added new page skeletons in `src/pages/`: `WorkPage`, `CaseStudyPage`, `ServicesPage`, `ServiceDetailPage`, `ProcessPage`, `PricingPage`, `AboutPage`, `BlogPage`, `BlogPostPage`, `StartPage`, `ContactPage`, `NotFoundPage`.
+- Updated `src/App.tsx` to use `BrowserRouter` and a full route map matching the page architecture guide.
+- Updated `src/components/Navigation.tsx` to route to the new page paths instead of internal homepage section scrolling.
+- Updated `src/Layout/MainLayout.tsx` to use the route-based navigation and keep the homepage intact.
+
+## Why this phase matters
+- It establishes the page architecture before we layer in content.
+- It makes the site more viewable and easier to explore by separating deep content into dedicated routes.
+- It keeps the homepage as the 30-second overview while unlocking the 5–10 minute follow-through pages.
+
+---
+
 When editing, include an inline `// CHANGE REASON:` comment at the top of modified files summarizing the reason (copy a short line from this doc). This makes PR reviews faster for future contributors.

@@ -1,13 +1,18 @@
-// CountryCodePicker.js
-import React from 'react';
+// CountryCodePicker.tsx
+import type { ChangeEvent, SelectHTMLAttributes } from 'react';
 import { getCountries, getCountryCallingCode } from 'react-phone-number-input';
 import en from 'react-phone-number-input/locale/en.json'; // Or your desired locale
 
-const CountryCodePicker = ({ value, onChange, ...rest }) => (
+interface CountryCodePickerProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange' | 'value'> {
+  value?: string;
+  onChange: (value?: string) => void;
+}
+
+const CountryCodePicker = ({ value, onChange, ...rest }: CountryCodePickerProps) => (
   <select
     {...rest}
     value={value}
-    onChange={(event) => onChange(event.target.value || undefined)}
+    onChange={(event: ChangeEvent<HTMLSelectElement>) => onChange(event.target.value || undefined)}
   >
     <option value="">{en['ZZ']}</option> {/* 'ZZ' for "Select country" label */}
     {getCountries().map((country) => (

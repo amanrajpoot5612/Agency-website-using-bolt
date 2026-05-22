@@ -34,33 +34,33 @@
     "services": [
       {
         "icon": "Code2",
-        "title": "Web Development",
-        "description": "Build fast, scalable, and secure web applications with modern technologies."
+        "title": "Portfolio Site (Pre-defined)",
+        "description": "Launch a polished portfolio site fast with CMS included and 3 months support."
       },
       {
         "icon": "Palette",
-        "title": "Web Design",
-        "description": "Create stunning, user-friendly interfaces that captivate your audience."
+        "title": "Portfolio Site (Custom Design)",
+        "description": "Custom visual design for your portfolio with CMS and business-ready polish."
       },
       {
         "icon": "Zap",
-        "title": "Performance Optimization",
-        "description": "Ensure your website runs lightning-fast with optimized code and assets."
+        "title": "Landing Page",
+        "description": "High-converting landing pages built for fast launches and lead capture."
       },
       {
         "icon": "Smartphone",
-        "title": "Responsive Design",
-        "description": "Flawless experience across all devices - desktop, tablet, and mobile."
+        "title": "Business Website",
+        "description": "Full business website development with responsive design and CMS support."
       },
       {
         "icon": "Package",
-        "title": "Custom Solutions",
-        "description": "Tailored solutions built specifically for your unique business needs."
+        "title": "Custom Mobile App",
+        "description": "Mobile app development for native-like experiences and high-engagement products."
       },
       {
         "icon": "BarChart3",
-        "title": "SEO & Analytics",
-        "description": "Optimize your online presence and track performance with advanced analytics."
+        "title": "CRM + Analytics Integration",
+        "description": "Connect your website with CRM and analytics systems for smarter customer workflows."
       }
     ]
   },
@@ -73,48 +73,48 @@
     "subHeading": "Real agency estimates for digital products, not one-size-fits-all packages.",
     "plans": [
       {
-        "name": "Starter",
-        "price": "$4,900 - $9,900",
-        "description": "Launch a polished website with clear messaging and mobile performance.",
-        "badge": "Best for founders",
+        "name": "Pre-defined Portfolio",
+        "price": "₹8,000 - ₹15,000",
+        "description": "Fast launch portfolio sites with CMS included and 3 months of support.",
+        "badge": "Best for individuals",
         "features": [
-          "Custom landing page or brochure site",
-          "Responsive design",
-          "Contact form and analytics",
-          "SEO-ready structure",
-          "2-week launch timeline",
-          "3 months support"
+          "Pre-defined portfolio layout",
+          "CMS included",
+          "Responsive mobile-first design",
+          "Contact form & analytics",
+          "3 months support",
+          "Launch-ready setup"
         ],
         "cta": "Book a Call"
       },
       {
-        "name": "Growth",
-        "price": "$12,000 - $24,900",
-        "description": "Build a conversion-focused site or product MVP with polished interactions.",
+        "name": "Custom Portfolio",
+        "price": "₹18,000 - ₹35,000",
+        "description": "Custom portfolio and landing page design with polished branding and CMS.",
         "badge": "Most Popular",
         "highlight": true,
         "features": [
-          "Custom UI & branding",
-          "CMS or landing page system",
-          "Advanced SEO and analytics",
-          "Lead capture and automations",
+          "Custom design and layout",
+          "CMS included",
+          "Advanced animations & interactions",
           "Performance optimization",
-          "6 months support"
+          "Lead capture setup",
+          "3-6 months support"
         ],
         "cta": "Book a Call"
       },
       {
-        "name": "Scale",
-        "price": "Custom",
-        "description": "A tailored digital platform for ambitious brands and integrated workflows.",
-        "badge": "Enterprise-ready",
+        "name": "Business Website",
+        "price": "₹25,000 - ₹80,000",
+        "description": "Full business website build tailored for growth, brands, and conversions.",
+        "badge": "Premium",
         "features": [
-          "Full product strategy and scope",
-          "Complex web app or platform",
-          "API and third-party integrations",
-          "Performance and security",
-          "Design systems and motion",
-          "Dedicated support"
+          "Custom business website",
+          "CMS & content workflows",
+          "SEO and performance setup",
+          "E-commerce readiness",
+          "Responsive across all devices",
+          "Dedicated launch support"
         ],
         "cta": "Book a Call"
       }

@@ -1,24 +1,21 @@
-// CHANGE REASON: Use a glass-style sticky nav with a single CTA and mobile overlay for a more premium, conversion-focused top bar.
+// CHANGE REASON: Convert the nav to route-based links for the new multi-page architecture.
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { NavLink, Link } from 'react-router-dom';
 
-interface NavigationProps {
-  activeSection: string;
-  onNavigate: (section: string) => void;
-}
-
-export const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
+export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const links = [
-    { id: 'home', label: 'Home' },
-    { id: 'services', label: 'Services' },
-    { id: 'pricing', label: 'Pricing' },
-    { id: 'portfolio', label: 'Portfolio' },
-    { id: 'testimonials', label: 'Testimonials' },
-    { id: 'about', label: 'About' },
-    { id: 'contact', label: 'Contact' },
+    { to: '/', label: 'Home' },
+    { to: '/work', label: 'Work' },
+    { to: '/services', label: 'Services' },
+    { to: '/process', label: 'Process' },
+    { to: '/pricing', label: 'Pricing' },
+    { to: '/about', label: 'About' },
+    { to: '/blog', label: 'Blog' },
+    { to: '/contact', label: 'Contact' },
   ];
 
   useEffect(() => {
@@ -27,16 +24,6 @@ export const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleNavClick = (id: string) => {
-    onNavigate(id);
-    setIsOpen(false);
-  };
-
-  const handlePrimaryAction = () => {
-    onNavigate('contact');
-    setIsOpen(false);
-  };
 
   return (
     <>
@@ -50,37 +37,37 @@ export const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
             isScrolled ? 'bg-navy-950/95 backdrop-blur-xl' : 'bg-navy-950/85 backdrop-blur-lg'
           }`}
         >
-          <div
-            onClick={() => handleNavClick('home')}
-            className="cursor-pointer text-2xl font-semibold tracking-tight text-white transition-opacity hover:opacity-80"
+          <Link
+            to="/"
+            className="text-2xl font-semibold tracking-tight text-white transition-opacity hover:opacity-80"
           >
             <span className="text-white">Wired</span>
             <span className="text-cyan-400"> Creations</span>
-          </div>
+          </Link>
 
           <div className="hidden items-center gap-8 md:flex">
             {links.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleNavClick(link.id)}
-                className={`text-sm font-medium transition-all ${
-                  activeSection === link.id
-                    ? 'text-cyan-400 border-b-2 border-cyan-400'
-                    : 'text-gray-300 hover:text-cyan-400'
-                }`}
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-all ${
+                    isActive ? 'text-cyan-400 border-b-2 border-cyan-400' : 'text-gray-300 hover:text-cyan-400'
+                  }`
+                }
               >
                 {link.label}
-              </button>
+              </NavLink>
             ))}
           </div>
 
           <div className="flex items-center gap-4">
-            <button
-              onClick={handlePrimaryAction}
+            <Link
+              to="/start"
               className="hidden rounded-full bg-cyan-400 px-5 py-2 text-sm font-semibold text-navy-950 transition hover:bg-cyan-500 md:inline-flex"
             >
               Book a Call
-            </button>
+            </Link>
             <button
               className="rounded-full p-2 text-cyan-300 hover:text-cyan-100 md:hidden"
               onClick={() => setIsOpen(!isOpen)}
@@ -107,26 +94,28 @@ export const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
 
           <div className="mt-12 space-y-6">
             {links.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleNavClick(link.id)}
-                className={`block w-full rounded-3xl border border-white/5 px-5 py-4 text-left text-2xl font-semibold transition-colors ${
-                  activeSection === link.id
-                    ? 'text-cyan-400 bg-white/5'
-                    : 'text-gray-300 hover:text-cyan-400'
-                }`}
+              <NavLink
+                key={link.to}
+                to={link.to}
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  `block w-full rounded-3xl border border-white/5 px-5 py-4 text-left text-2xl font-semibold transition-colors ${
+                    isActive ? 'text-cyan-400 bg-white/5' : 'text-gray-300 hover:text-cyan-400'
+                  }`
+                }
               >
                 {link.label}
-              </button>
+              </NavLink>
             ))}
           </div>
 
-          <button
-            onClick={handlePrimaryAction}
-            className="mt-10 w-full rounded-full bg-cyan-400 px-6 py-4 text-center text-lg font-semibold text-navy-950 transition hover:bg-cyan-500"
+          <Link
+            to="/start"
+            className="mt-10 inline-flex w-full justify-center rounded-full bg-cyan-400 px-6 py-4 text-center text-lg font-semibold text-navy-950 transition hover:bg-cyan-500"
+            onClick={() => setIsOpen(false)}
           >
             Book a Call
-          </button>
+          </Link>
         </div>
       )}
     </>

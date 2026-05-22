@@ -49,7 +49,7 @@ export const About = ({ data }: AboutProps) => {
             <div className="space-y-4">
               {data.textSections.map((textSection) => {
                 return (
-                  <div>
+                  <div key={textSection.label}>
                     <h3 className="text-xl font-bold text-white mb-2">
                       {textSection.label}
                     </h3>
@@ -77,13 +77,13 @@ export const About = ({ data }: AboutProps) => {
           >
             {
               data.matrices.map((segment, idx) => (
-                  (idx == 0 || idx == 3)
-                    ? <div className="bg-gradient-to-br from-cyan-400/10 to-cyan-500/5 p-8 rounded-xl border border-cyan-400/30">
+                  (idx === 0 || idx === 3)
+                    ? <div key={segment.label} className="bg-gradient-to-br from-cyan-400/10 to-cyan-500/5 p-8 rounded-xl border border-cyan-400/30">
               <div className="text-4xl font-bold text-cyan-400 mb-2">{segment.number}</div>
               <p className="text-gray-300">{segment.label}</p>
             </div>
                     : 
-                    <div className="bg-gradient-to-br from-navy-900 to-navy-800 p-8 rounded-xl border border-cyan-400/20">
+                    <div key={segment.label} className="bg-gradient-to-br from-navy-900 to-navy-800 p-8 rounded-xl border border-cyan-400/20">
               <div className="text-4xl font-bold text-white mb-2">{segment.number}</div>
               <p className="text-gray-300">{segment.label}</p>
             </div>

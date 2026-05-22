@@ -2,7 +2,6 @@ import { Star } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 interface TestimonialsProps {
-  onNavigate: (section: string) => void;
   data: {
     heading: {
       headingP1: string;
@@ -19,7 +18,7 @@ interface TestimonialsProps {
   };
 }
 
-export const Testimonials = ({ onNavigate, data }: TestimonialsProps) => {
+export const Testimonials = ({ data }: TestimonialsProps) => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
