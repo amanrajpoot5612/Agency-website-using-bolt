@@ -1,43 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 import PageLayout from '../Layout/PageLayout';
-
-const serviceData: Record<string, { title: string; intro: string; bullets: string[] }> = {
-  'web-design': {
-    title: 'Web Design',
-    intro: 'Design systems, interface strategy, and polished visual direction for websites and landing pages.',
-    bullets: ['User research and wireframes', 'High-fidelity UI in Figma', 'Responsive design across devices', 'Developer-ready handoff files'],
-  },
-  'web-development': {
-    title: 'Web Development',
-    intro: 'Build fast, modern websites and web apps with production-ready React, CMS, and integrations.',
-    bullets: ['Custom React/TypeScript front ends', 'CMS and content workflows', 'Performance optimization', 'QA and launch support'],
-  },
-  'ecommerce': {
-    title: 'E-commerce',
-    intro: 'Shopify and custom commerce sites designed for conversions and smooth checkouts.',
-    bullets: ['Store setup and theming', 'Product catalog design', 'Payments and analytics', 'Launch and support'],
-  },
-  'product-design': {
-    title: 'Product Design',
-    intro: 'SaaS dashboards, mobile apps, and product workflows designed for real user outcomes.',
-    bullets: ['Customer journey mapping', 'Interactive prototypes', 'Design system delivery', 'Usability-driven iteration'],
-  },
-  'brand-identity': {
-    title: 'Brand Identity',
-    intro: 'Visual identity systems that align your product story with a professional market presence.',
-    bullets: ['Logo and visual system', 'Typography and color palette', 'Brand expression guidelines', 'Asset package for launch'],
-  },
-  'support-retainer': {
-    title: 'Support Retainer',
-    intro: 'Ongoing website care, updates, and optimization with a predictable monthly plan.',
-    bullets: ['Bug fixes and updates', 'Performance monitoring', 'Security patching', 'Priority support'],
-  },
-};
+import data from '../Data/Data.json';
 
 export default function ServiceDetailPage() {
   const { slug } = useParams();
-  const service = slug ? serviceData[slug] : null;
+  const services = (data as any).servicesList || (data as any).services?.services || [];
+  const service = slug ? services.find((s: any) => s.slug === slug || s.title?.toLowerCase().replace(/\s+/g, '-') === slug) : null;
 
   if (!service) {
     return (
@@ -58,10 +27,10 @@ export default function ServiceDetailPage() {
       <section className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
         <p className="text-sm uppercase tracking-[0.32em] text-cyan-400">Service Detail</p>
         <h1 className="mt-6 text-4xl font-bold tracking-tight text-white">{service.title}</h1>
-        <p className="mt-6 text-lg leading-8 text-slate-300">{service.intro}</p>
+        <p className="mt-6 text-lg leading-8 text-slate-300">{service.description || service.intro || ''}</p>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {service.bullets.map((item) => (
+          {(service.features || service.bullets || []).map((item: string) => (
             <div key={item} className="rounded-3xl border border-cyan-400/10 bg-navy-950/70 p-6">
               <p className="text-slate-300">{item}</p>
             </div>

@@ -1,8 +1,11 @@
 import { Footer } from '../components/Footer';
 import PageLayout from '../Layout/PageLayout';
 import { Link } from 'react-router-dom';
+import data from '../Data/Data.json';
 
 export default function WorkPage() {
+  const projects = (data as any).projects || (data as any).portfolio?.projects || [];
+
   return (
     <PageLayout>
       <section className="bg-navy-950 pb-20">
@@ -29,17 +32,17 @@ export default function WorkPage() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {[1, 2, 3, 4].map((project) => (
-              <article key={project} className="overflow-hidden rounded-[2rem] border border-cyan-400/10 bg-navy-950/80 p-6 shadow-2xl shadow-cyan-500/5 transition hover:-translate-y-1 hover:border-cyan-400/20">
-                <div className="mb-6 h-64 rounded-3xl bg-slate-800"></div>
+            {projects.map((project: any) => (
+              <article key={project.slug || project.id || project.title} className="overflow-hidden rounded-[2rem] border border-cyan-400/10 bg-navy-950/80 p-6 shadow-2xl shadow-cyan-500/5 transition hover:-translate-y-1 hover:border-cyan-400/20">
+                <div className="mb-6 h-64 rounded-3xl bg-slate-800" style={{backgroundImage: project.thumbnail ? `url(${project.thumbnail})` : undefined, backgroundSize: 'cover', backgroundPosition: 'center'}} />
                 <div className="space-y-3">
                   <span className="inline-flex rounded-full bg-cyan-500/10 px-3 py-1 text-xs uppercase tracking-[0.24em] text-cyan-300">Project</span>
-                  <h2 className="text-2xl font-semibold text-white">Project case study {project}</h2>
-                  <p className="text-slate-400">A polished website build delivered with design systems, responsive screens, and measurement-ready launch.</p>
+                  <h2 className="text-2xl font-semibold text-white">{project.title}</h2>
+                  <p className="text-slate-400">{project.description || project.industry || ''}</p>
                 </div>
                 <div className="mt-6 flex items-center justify-between">
-                  <div className="text-sm text-slate-400">Fintech · 2025</div>
-                  <Link to="/work/project-slug" className="text-cyan-400 transition hover:text-white">
+                  <div className="text-sm text-slate-400">{(project.industry || project.category?.[0] || '')} · {project.year || ''}</div>
+                  <Link to={`/work/${project.slug || project.id || ''}`} className="text-cyan-400 transition hover:text-white">
                     View case study →
                   </Link>
                 </div>

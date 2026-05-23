@@ -1,14 +1,11 @@
 import { Footer } from '../components/Footer';
 import PageLayout from '../Layout/PageLayout';
 import { Link } from 'react-router-dom';
-
-const pricingPlans = [
-  { label: 'Starter', price: 'From ₹3,000', description: 'Landing pages and brochure sites with clear messaging.' },
-  { label: 'Growth', price: 'From ₹8,000', description: 'Custom websites and product MVPs with polished interactions.' },
-  { label: 'Scale', price: 'Custom', description: 'Complex platforms, SaaS products, and enterprise-grade launches.' },
-];
+import data from '../Data/Data.json';
 
 export default function PricingPage() {
+  const plans = (data as any).pricing?.plans || (data as any).pricing || [];
+
   return (
     <PageLayout>
       <section className="bg-navy-950 pb-20">
@@ -18,15 +15,15 @@ export default function PricingPage() {
           <p className="mt-6 max-w-2xl text-lg text-slate-300">Fixed-scope packages with clear deliverables so you know the number before we start.</p>
 
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            {pricingPlans.map((plan) => (
-              <div key={plan.label} className="rounded-[2rem] border border-cyan-400/10 bg-navy-950/70 p-8 shadow-2xl shadow-cyan-500/5 transition hover:-translate-y-1">
-                <p className="text-sm uppercase tracking-[0.32em] text-cyan-300">{plan.label}</p>
-                <h2 className="mt-5 text-3xl font-semibold text-white">{plan.price}</h2>
+            {plans.map((plan: any) => (
+              <div key={plan.label || plan.name} className="rounded-[2rem] border border-cyan-400/10 bg-navy-950/70 p-8 shadow-2xl shadow-cyan-500/5 transition hover:-translate-y-1">
+                <p className="text-sm uppercase tracking-[0.32em] text-cyan-300">{plan.label || plan.name}</p>
+                <h2 className="mt-5 text-3xl font-semibold text-white">{plan.price || plan.rate || plan.from}</h2>
                 <p className="mt-4 text-slate-300">{plan.description}</p>
                 <ul className="mt-6 space-y-3 text-slate-400">
-                  <li>Clear deliverables</li>
-                  <li>Fast launch-ready workflow</li>
-                  <li>Support included</li>
+                  {(plan.features || plan.items || ['Clear deliverables', 'Fast launch-ready workflow', 'Support included']).map((it: string) => (
+                    <li key={it}>{it}</li>
+                  ))}
                 </ul>
                 <Link
                   to="/start"

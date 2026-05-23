@@ -412,6 +412,7 @@
           }
         ]
       }
+      }
     },
     "disclaimer": " Wired Creations. All rights reserved.",
     "social": [
@@ -430,7 +431,64 @@
       {
         "label": "Instagram",
         "url": "#"
-      }
-    ]
-  }
+        }
+      ]
+    ,
+  "projects": [
+    {
+      "slug": "bugsy",
+      "title": "Bugsy",
+      "category": ["Product"],
+      "industry": "Media",
+      "year": "2025",
+      "thumbnail": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png",
+      "featured": true
+    },
+    {
+      "slug": "pulse-commerce",
+      "title": "Pulse Commerce",
+      "category": ["E-commerce"],
+      "industry": "Retail",
+      "year": "2025",
+      "thumbnail": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png",
+      "featured": false
+    }
+  ],
+
+  "servicesList": [
+    {
+      "slug": "web-design",
+      "title": "Web Design",
+      "description": "Design systems, landing pages, and brand-led interfaces."
+    },
+    {
+      "slug": "web-development",
+      "title": "Web Development",
+      "description": "Full-stack React and CMS builds with clean, fast code."
+    },
+    {
+      "slug": "ecommerce",
+      "title": "E-commerce",
+      "description": "Shopify and custom commerce sites designed to sell."
+    }
+  ],
+
+  "blogPosts": [
+    {
+      "slug": "mvp-design",
+      "title": "Why your MVP looks like an MVP",
+      "category": "Design",
+      "date": "2025-05-01",
+      "excerpt": "How to move past first-draft product thinking and launch with clarity.",
+      "content": "# Why your MVP looks like an MVP\n\nThis is a starter post that explains why an MVP feels like an MVP and how to fix it. The goal is to deliver a product that looks confident from day one."
+    },
+    {
+      "slug": "react-patterns",
+      "title": "5 React patterns we use on every project",
+      "category": "Development",
+      "date": "2025-04-18",
+      "excerpt": "Reusable approaches for modern React apps and scalable UI.",
+      "content": "# 5 React patterns we use on every project\n\nA quick guide to the React patterns that keep our apps maintainable and performant."
+    }
+  ]
 }

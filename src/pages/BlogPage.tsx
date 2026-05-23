@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 import PageLayout from '../Layout/PageLayout';
+import data from '../Data/Data.json';
 
-const posts = [
-  { slug: 'mvp-design', title: 'Why your MVP looks like an MVP', category: 'Design', excerpt: 'How to move past first-draft product thinking and launch with clarity.', date: '2025-05-01' },
-  { slug: 'react-patterns', title: '5 React patterns we use on every project', category: 'Development', excerpt: 'Reusable approaches for modern React apps and scalable UI.', date: '2025-04-18' },
-  { slug: 'briefing-agency', title: 'How to brief a design agency without wasting time', category: 'Business', excerpt: 'The questions and context that help your project start strong.', date: '2025-04-05' },
-];
+const posts = data.blogPosts || [];
 
 export default function BlogPage() {
   return (
@@ -18,7 +15,7 @@ export default function BlogPage() {
           <p className="mt-6 max-w-2xl text-lg text-slate-300">Design, development, and agency lessons that help you move faster and launch stronger.</p>
 
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            {posts.map((post) => (
+            {posts.map((post: any) => (
               <article key={post.slug} className="rounded-[2rem] border border-cyan-400/10 bg-navy-950/70 p-8 transition hover:-translate-y-1 hover:border-cyan-400/20">
                 <span className="text-xs uppercase tracking-[0.32em] text-cyan-300">{post.category}</span>
                 <h2 className="mt-4 text-2xl font-semibold text-white">{post.title}</h2>

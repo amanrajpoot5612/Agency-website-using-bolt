@@ -1,16 +1,10 @@
 import { Footer } from '../components/Footer';
 import PageLayout from '../Layout/PageLayout';
 import { Link } from 'react-router-dom';
+import data from '../Data/Data.json';
 
 export default function ServicesPage() {
-  const services = [
-    { title: 'Web Design', description: 'Design systems, landing pages, and brand-led interfaces.', slug: 'web-design' },
-    { title: 'Web Development', description: 'Full-stack React and CMS builds with clean, fast code.', slug: 'web-development' },
-    { title: 'E-commerce', description: 'Shopify and custom commerce sites designed to sell.', slug: 'ecommerce' },
-    { title: 'Product Design', description: 'SaaS dashboards, mobile UX, and product workflows.', slug: 'product-design' },
-    { title: 'Brand Identity', description: 'Visual systems, logo work, and messaging for modern brands.', slug: 'brand-identity' },
-    { title: 'Support Retainer', description: 'Monthly updates, performance care, and technical support.', slug: 'support-retainer' },
-  ];
+  const services = (data as any).servicesList || (data as any).services?.services || [];
 
   return (
     <PageLayout>
@@ -21,10 +15,10 @@ export default function ServicesPage() {
           <p className="mt-6 max-w-2xl text-lg text-slate-300">Strategy, design, and development tailored to ambitious businesses and early-stage products.</p>
 
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
+            {services.map((service: any) => (
               <Link
-                key={service.slug}
-                to={`/services/${service.slug}`}
+                key={service.slug || service.title}
+                to={`/services/${service.slug || service.title?.toLowerCase().replace(/\s+/g, '-')}`}
                 className="group rounded-[2rem] border border-cyan-400/10 bg-navy-950/70 p-8 transition hover:-translate-y-1 hover:border-cyan-400/20"
               >
                 <span className="text-sm uppercase tracking-[0.32em] text-cyan-400">Service</span>

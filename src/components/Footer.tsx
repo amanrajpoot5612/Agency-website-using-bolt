@@ -20,7 +20,7 @@ const socialIconMap: Record<string, LucideIcon> = {
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const footer = data.footer;
+  const footer = (data as any).footer;
 
   return (
     <footer className="bg-navy-950 text-white py-16 border-t border-cyan-400/20">
@@ -37,7 +37,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-white">{footer.sections.quick.heading}</h4>
             <ul className="space-y-2">
-              {footer.sections.quick.links.map((link) => (
+              {(footer.sections?.quick?.links || []).map((link: any) => (
                 <li key={link.label}>
                   <a
                     href={link.path}
@@ -53,7 +53,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-white">{footer.sections.services.heading}</h4>
             <ul className="space-y-2">
-              {footer.sections.services.links.map((link) => (
+              {(footer.sections?.services?.links || []).map((link: any) => (
                 <li key={link.label}>
                   <a
                     href={link.path}
@@ -69,7 +69,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-white">{footer.sections.getInTouch.heading}</h4>
             <ul className="space-y-3">
-              {footer.sections.getInTouch.links.map((link) => (
+              {(footer.sections?.getInTouch?.links || []).map((link: any) => (
                 <li key={link.label} className="flex items-center gap-2 text-gray-400">
                   {link.label.includes("@") ? (
                     <>
@@ -112,7 +112,7 @@ export const Footer = () => {
             </p>
 
             <div className="flex gap-4">
-              {footer.social.map((social) => {
+              {(footer.social || []).map((social: any) => {
                 const Icon = socialIconMap[social.label] || Facebook;
                 return (
                   <a
