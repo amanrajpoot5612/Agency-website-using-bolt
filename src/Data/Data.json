@@ -134,25 +134,25 @@
     "subHeading": "Don't just take our word for it. Hear directly from our satisfied clients.",
     "testimonials": [
       {
-        "name": "Deepak Kumar",
-        "role": "Individual",
-        "content": "Working with this team was the easiest decision I made for my business. They took my half-baked idea and turned it into a clean, fast, and modern website that finally makes me look professional. The communication was sharp, and the delivery was faster than I expected.",
+        "name": "Arjun Mehra",
+        "role": "Digital Marketing Director",
+        "content": "We hired the team to give our marketing agency a stronger digital presence, and the results were immediate. They rebuilt our site, aligned messaging with our paid campaigns, and redesigned lead capture so we could qualify prospects before the first call. Within six weeks, our inbound leads were higher quality and our cost per lead dropped significantly.",
         "rating": 5,
-        "image": "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+        "image": "https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
       },
       {
-        "name": "Gaurav Kashyap",
-        "role": "College Student",
-        "content": "I needed a proper online presence for internships, and they delivered exactly what I was missing. The website looks polished, loads fast, and actually helped me get more callbacks. They guided me like a senior would — super helpful throughout.",
+        "name": "Neha Sharma",
+        "role": "Founder, Realty Collective",
+        "content": "As a real estate business, we needed an online experience that matched the premium listings we represent. They created a polished showcase for our properties, improved our local SEO, and added a booking flow that made it easy for clients to request viewings. Within two months, we started getting more qualified buyer inquiries and the site felt like a real sales asset.",
         "rating": 5,
-        "image": "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+        "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
       },
       {
-        "name": "Lakshay Tyagi",
-        "role": "Fresher  ",
-        "content": "I had zero experience showcasing my work online, but they built me a portfolio that genuinely stands out. Recruiters actually complimented the layout and clarity. This website became the biggest reason I started getting interviews.",
+        "name": "Priya Singh",
+        "role": "Local Shop Owner",
+        "content": "I run a neighbourhood gift shop and needed help moving beyond walk-in traffic. They built a clean online storefront, set up a simple order form, and helped me promote seasonal products on social media. The new site made my shop look trustworthy, and customers started calling instead of just walking past the window.",
         "rating": 5,
-        "image": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+        "image": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
       }
     ]
   },
@@ -407,33 +407,36 @@
             "label": "9355505920"
           },
           {
-            "label": "Noida, Uttar Praadesh, India",
+            "label": "A-168, Sector 63 Noida, Uttar Pradesh, India",
             "path": "https://www.google.com/maps?sca_esv=7575179a13efdb84&output=search&q=noida+uttar+pradesh&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIetxLMeWi1u_d0OMRvkClUba76WL62NDKV-tuv6_wPYBCwn1PrrOfPs6OFYogAUA80FYHcjgwjxnZp9Em-qnZn8N88c_ebmPbIi63FSDmv95Pcf_otdXo9FeYCGsvCNv2WI4CnnNZPbkgsxmielkQhjj8RWID-Gg_V2mrX9CBwas9No3GlQ&entry=mc&ved=1t:200715&ictx=111"
           }
         ]
-      }
       }
     },
     "disclaimer": " Wired Creations. All rights reserved.",
     "social": [
       {
         "label": "Facebook",
-        "url": "#"
+        "url": "https://www.facebook.com/reg/?entry_point=login&next=https%3A%2F%2Fwww.facebook.com%2F"
       },
       {
-        "label": "Twitter",
-        "url": "#"
+        "label": "Youtube",
+        "url": "https://www.youtube.com/feed/you"
       },
       {
-        "label": "Linkedin",
-        "url": "https://www.linkedin.com/company/109635376/"
+        "label": "Pinterest",
+        "url": "https://in.pinterest.com/contactwiredcreations/"
       },
       {
         "label": "Instagram",
-        "url": "#"
-        }
-      ]
-    ,
+        "url": "https://www.instagram.com/wiredcreations.agency/"
+      },
+      {
+        "label": "Linkedin",
+        "url": "https://www.linkedin.com/in/wired-creations-9173b1397/"
+      }
+    ]
+  },
   "projects": [
     {
       "slug": "bugsy",

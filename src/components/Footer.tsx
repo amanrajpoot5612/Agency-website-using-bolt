@@ -5,6 +5,8 @@ import {
   Twitter,
   Linkedin,
   Instagram,
+  Youtube,
+  Pin,
   Mail,
   Phone,
   MapPin,
@@ -16,11 +18,13 @@ const socialIconMap: Record<string, LucideIcon> = {
   Twitter,
   Linkedin,
   Instagram,
+  Youtube,
+  Pinterest: Pin,
 };
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const footer = (data as any).footer;
+  const footer: any = (data as any).footer;
 
   return (
     <footer className="bg-navy-950 text-white py-16 border-t border-cyan-400/20">

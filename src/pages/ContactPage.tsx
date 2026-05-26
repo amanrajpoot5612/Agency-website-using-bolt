@@ -1,7 +1,12 @@
 import { Footer } from '../components/Footer';
 import PageLayout from '../Layout/PageLayout';
+import data from '../Data/Data.json';
 
 export default function ContactPage() {
+  const contactLinks = (data as any).footer?.sections?.getInTouch?.links || [];
+  const emailLink = contactLinks.find((link: any) => link.href?.startsWith('mailto:'));
+  const phoneLink = contactLinks.find((link: any) => !link.href && !link.path);
+  const locationLink = contactLinks.find((link: any) => link.path);
   return (
     <PageLayout>
       <section className="bg-navy-950 pb-20">
@@ -14,9 +19,18 @@ export default function ContactPage() {
             <div className="rounded-[2rem] border border-cyan-400/10 bg-navy-950/70 p-8 shadow-2xl shadow-cyan-500/5">
               <h2 className="text-2xl font-semibold text-white">Contact details</h2>
               <div className="mt-6 space-y-4 text-slate-300">
-                <p>Email: <a href="mailto:hello@wiredcreations.shop" className="text-cyan-400">hello@wiredcreations.shop</a></p>
+                {emailLink && (
+                  <p>
+                    Email: <a href={emailLink.href} className="text-cyan-400">{emailLink.label}</a>
+                  </p>
+                )}
+                {phoneLink && <p>Phone: {phoneLink.label}</p>}
+                {locationLink && (
+                  <p>
+                    Location: <a href={locationLink.path} className="text-cyan-400" target="_blank" rel="noreferrer">{locationLink.label}</a>
+                  </p>
+                )}
                 <p>Response time: Within 1 business day</p>
-                <p>Location: Remote-first, globally available</p>
               </div>
               <div className="mt-10 space-y-3 text-slate-300">
                 <p className="font-semibold text-white">FAQ</p>
