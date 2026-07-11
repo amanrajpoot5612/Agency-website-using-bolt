@@ -3,8 +3,11 @@ import PageLayout from '../Layout/PageLayout';
 import { Seo } from '../components/Seo';
 import { useLeadSubmission } from '../hooks/useLeadSubmission';
 import type { LeadPayload } from '../types/content';
+import data from '../Data/Data.json';
 
-const initialForm: LeadPayload = { name: '', email: '', phone: '', projectType: 'Portfolio Site (Pre-defined)', budget: '₹8,000 - ₹15,000', timeline: '', message: '' };
+const copy = data.siteCopy.startPage;
+const formCopy = data.siteCopy.contactForm;
+const initialForm: LeadPayload = { name: '', email: '', phone: '', projectType: formCopy.projectTypes[0].label, budget: formCopy.budgets[0], timeline: '', message: '' };
 
 export default function StartPage() {
   const [form, setForm] = useState(initialForm);
@@ -16,9 +19,9 @@ export default function StartPage() {
 
   return (
     <PageLayout>
-      <Seo title="Start a Project" description="Tell Wired Creations about your website, product, or application project." path="/start" />
+      <Seo {...data.siteCopy.seo.start} path="/start" />
       <section className="bg-navy-950 pb-20"><div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
-        <p className="text-sm uppercase tracking-[0.32em] text-cyan-400">Start a project</p><h1 className="mt-6 text-4xl font-bold text-white sm:text-5xl">Let’s build something great.</h1><p className="mt-6 max-w-2xl text-lg text-slate-300">Tell us about your project and we’ll reply within one business day with next steps.</p>
+        <p className="text-sm uppercase tracking-[0.32em] text-cyan-400">{copy.eyebrow}</p><h1 className="mt-6 text-4xl font-bold text-white sm:text-5xl">{copy.title}</h1><p className="mt-6 max-w-2xl text-lg text-slate-300">{copy.intro}</p>
         <form onSubmit={handleSubmit} className="mt-14 space-y-8">
           <div className="grid gap-6 rounded-[2rem] border border-cyan-400/10 bg-navy-950/70 p-8 sm:grid-cols-2">
             <div><label htmlFor="start-name" className="block text-sm font-medium text-slate-200">Name</label><input id="start-name" name="name" autoComplete="name" required value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} className="mt-3 w-full rounded-3xl border border-slate-800 bg-navy-900 px-4 py-3 text-white" /></div>

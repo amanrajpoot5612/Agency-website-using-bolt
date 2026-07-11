@@ -2,21 +2,14 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NavLink, Link } from 'react-router-dom';
+import data from '../Data/Data.json';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const links = [
-    { to: '/', label: 'Home' },
-    { to: '/work', label: 'Work' },
-    { to: '/services', label: 'Services' },
-    { to: '/process', label: 'Process' },
-    { to: '/pricing', label: 'Pricing' },
-    { to: '/about', label: 'About' },
-    { to: '/blog', label: 'Blog' },
-    { to: '/contact', label: 'Contact' },
-  ];
+  const copy = data.siteCopy.navigation;
+  const links = data.footer.sections.quick.links.slice(0, 1).concat(copy.links).map((link) => ({ to: 'path' in link ? link.path : '/', label: link.label }));
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -54,8 +47,8 @@ export const Navigation = () => {
             to="/"
             className="text-xl font-semibold tracking-tight text-white transition-opacity hover:opacity-80"
           >
-            <span className="text-white">Wired</span>
-            <span className="text-cyan-400"> Creations</span>
+            <span className="text-white">{data.siteCopy.brand.first}</span>
+            <span className="text-cyan-400">{data.siteCopy.brand.second}</span>
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
@@ -79,13 +72,13 @@ export const Navigation = () => {
               to="/start"
               className="hidden rounded-full bg-cyan-400 px-5 py-2 text-sm font-semibold text-navy-950 transition hover:bg-cyan-500 md:inline-flex"
             >
-              Book a Call
+              {copy.cta}
             </Link>
             <button
               type="button"
               className="rounded-full p-2 text-cyan-300 hover:text-cyan-100 md:hidden"
               onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
+              aria-label={copy.toggleMenuLabel}
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
             >
@@ -96,14 +89,14 @@ export const Navigation = () => {
       </nav>
 
       {isOpen && (
-        <div id="mobile-navigation" role="dialog" aria-modal="true" aria-label="Mobile navigation" className="fixed inset-0 z-50 overflow-y-auto bg-navy-950/95 px-8 pt-8 backdrop-blur-xl md:hidden">
+        <div id="mobile-navigation" role="dialog" aria-modal="true" aria-label={copy.mobileNavigationLabel} className="fixed inset-0 z-50 overflow-y-auto bg-navy-950/95 px-8 pt-8 backdrop-blur-xl md:hidden">
           <div className="flex items-center justify-between">
-            <div className="text-lg font-semibold text-white">Menu</div>
+            <div className="text-lg font-semibold text-white">{copy.menu}</div>
             <button
               type="button"
               onClick={() => setIsOpen(false)}
               className="rounded-full bg-white/5 p-3 text-cyan-400 transition hover:bg-white/10"
-              aria-label="Close menu"
+              aria-label={copy.closeMenuLabel}
             >
               <X size={24} />
             </button>
@@ -131,7 +124,7 @@ export const Navigation = () => {
             className="mt-10 inline-flex w-full justify-center rounded-full bg-cyan-400 px-6 py-4 text-center text-lg font-semibold text-navy-950 transition hover:bg-cyan-500"
             onClick={() => setIsOpen(false)}
           >
-            Book a Call
+            {copy.cta}
           </Link>
         </div>
       )}

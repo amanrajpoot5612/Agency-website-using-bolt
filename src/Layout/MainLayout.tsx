@@ -20,7 +20,7 @@ const MainLayout = () => {
 
   return (
     <div className="bg-navy-950">
-      <Seo title="Wired Creations" description="Wired Creations designs and builds polished websites, digital products, and growth-ready experiences." path="/" />
+      <Seo {...data.siteCopy.seo.home} path="/" />
       <Navigation />
       <Hero onNavigate={handleNavigate} data={data.hero} />
       <Services data={data.services} />

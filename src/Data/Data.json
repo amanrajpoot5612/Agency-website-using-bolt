@@ -476,6 +476,167 @@
       }
     ]
   },
+  "siteCopy": {
+    "brand": { "first": "Wired", "second": " Creations" },
+    "common": {
+      "loading": "Loading…",
+      "all": "All",
+      "projectSingular": "project",
+      "projectPlural": "projects",
+      "backToWork": "Back to Work",
+      "startProject": "Start a project"
+    },
+    "seo": {
+      "home": { "title": "Wired Creations", "description": "Wired Creations designs and builds polished websites, digital products, and growth-ready experiences." },
+      "work": { "title": "Our Work", "description": "Explore digital products, commerce experiences, platforms, and websites created by Wired Creations." },
+      "services": { "title": "Services", "description": "Explore portfolio, website, landing page, mobile app, CRM, and analytics services from Wired Creations." },
+      "process": { "title": "Our Process", "description": "See how Wired Creations moves projects from discovery through design, development, review, and launch." },
+      "pricing": { "title": "Pricing", "description": "Transparent INR project estimates for portfolios, landing pages, and business websites." },
+      "about": { "title": "About", "description": "Meet Wired Creations, a focused digital design and development studio." },
+      "blog": { "title": "Blog", "description": "Design, development, and digital product insights from Wired Creations." },
+      "start": { "title": "Start a Project", "description": "Tell Wired Creations about your website, product, or application project." },
+      "contact": { "title": "Contact", "description": "Contact Wired Creations about a digital product, website, or partnership." },
+      "meeting": { "title": "Book a Consultation", "description": "Book a consultation with Wired Creations to discuss your next digital project." },
+      "notFound": { "title": "Page Not Found", "description": "The requested page does not exist." },
+      "caseStudyNotFound": { "title": "Case Study Not Found", "description": "The requested Wired Creations case study is unavailable." },
+      "serviceNotFound": { "title": "Service Not Found", "description": "The requested Wired Creations service is unavailable." },
+      "postNotFound": { "title": "Post Not Found", "description": "The requested Wired Creations article is unavailable." }
+    },
+    "navigation": {
+      "links": [
+        { "label": "Work", "path": "/work" },
+        { "label": "Services", "path": "/services" },
+        { "label": "Process", "path": "/process" },
+        { "label": "Pricing", "path": "/pricing" },
+        { "label": "About", "path": "/about" },
+        { "label": "Blog", "path": "/blog" },
+        { "label": "Contact", "path": "/contact" }
+      ],
+      "cta": "Start a Project",
+      "menu": "Menu",
+      "toggleMenuLabel": "Toggle menu",
+      "closeMenuLabel": "Close menu",
+      "mobileNavigationLabel": "Mobile navigation"
+    },
+    "heroExtras": {
+      "eyebrow": "Product launches designed for founders",
+      "workflowLabel": "Featured workflow",
+      "workflowTitle": "Launch digital products faster with clarity and craftsmanship.",
+      "workflowDescription": "We pair experience design with engineering discipline so your next product ships on time and looks premium.",
+      "workflowTags": ["Product-led", "Growth-ready"],
+      "whyTitle": "Why this works",
+      "whyDescription": "One senior team stays close to the work from first workshop through launch, reducing handoffs and keeping decisions fast."
+    },
+    "homeServices": { "explore": "Explore more" },
+    "homePortfolio": {
+      "all": "All",
+      "filterLabel": "Filter projects by category",
+      "previewSuffix": "project preview",
+      "viewCaseStudy": "View case study",
+      "launchLabel": "Ready for your next launch?",
+      "launchTitle": "Bring us the messy brief. We’ll turn it into a clear path to launch.",
+      "launchButton": "Start a project"
+    },
+    "contactForm": {
+      "heading": { "first": "Get In", "second": " Touch" },
+      "intro": "Ready to start your next project? Let's talk about your ideas and how we can help bring them to life.",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thanks for reaching out — we'll reply within one business day.",
+      "errorTitle": "Error",
+      "fields": {
+        "name": { "label": "Name", "placeholder": "Your name" },
+        "email": { "label": "Email", "placeholder": "your@email.com" },
+        "phone": { "label": "Phone", "placeholder": "Your phone number" },
+        "projectType": { "label": "Project Type", "placeholder": "Select a project type" },
+        "budget": { "label": "Budget Range", "placeholder": "Select budget range" },
+        "timeline": { "label": "Timeline", "placeholder": "Select timeline" },
+        "message": { "label": "Project Details", "placeholder": "Tell us about your project, goals, and any specific requirements..." }
+      },
+      "projectTypes": [
+        { "value": "basic-website", "label": "Basic Website" }, { "value": "business-website", "label": "Business Website" },
+        { "value": "landing-page", "label": "Landing Page" }, { "value": "e-commerce", "label": "E-Commerce" },
+        { "value": "web-application", "label": "Web Application" }, { "value": "saas-platform", "label": "SaaS Platform" },
+        { "value": "mobile-app", "label": "Mobile App" }, { "value": "custom-solution", "label": "Custom Solution" }
+      ],
+      "budgets": ["₹8,000 - ₹15,000", "₹18,000 - ₹35,000", "₹25,000 - ₹80,000", "₹80,000+"],
+      "timelines": ["ASAP", "1-4 weeks", "1-3 months", "3-6 months", "6+ months"],
+      "submit": "Send Message",
+      "submitting": "Sending..."
+    },
+    "workPage": {
+      "eyebrow": "Our work", "title": "Work that speaks for itself.",
+      "intro": "10+ launches across web, product, and e-commerce. Explore our work and find the right fit for your project.",
+      "showing": "Showing", "previewSuffix": "project preview", "viewCaseStudy": "View case study →",
+      "ctaTitle": "Ready to talk through your next digital product?", "ctaText": "Let’s plan the right path for work that converts and feels premium.", "ctaButton": "Let’s Talk →"
+    },
+    "servicesPage": {
+      "eyebrow": "Services", "title": "Built around your next milestone.",
+      "intro": "Focused design and engineering services for launches, growth, and better customer workflows.",
+      "explore": "Explore service →", "cta": "Discuss your project"
+    },
+    "serviceDetail": {
+      "notFoundTitle": "Service not found", "back": "Back to Services", "eyebrow": "Service Detail",
+      "deliverablesTitle": "What you receive", "processTitle": "How we work", "faqTitle": "Frequently asked questions",
+      "ctaTitle": "Want to discuss this service?", "cta": "Start a Project"
+    },
+    "caseStudy": {
+      "notFoundTitle": "Case study not found", "notFoundText": "Check the work index for available projects.",
+      "challenge": "The challenge", "approach": "Our approach", "deliverables": "Deliverables", "outcomes": "Outcomes"
+    },
+    "processPage": {
+      "eyebrow": "Process", "title": "No surprises. No delays. No vanishing acts.",
+      "intro": "Here’s exactly how every project runs at Wired Creations, from brief to launch.", "phase": "Phase",
+      "phases": [
+        { "title": "Discovery", "timeline": "Week 1", "description": "We align on goals, audience, scope, constraints, and what success should look like." },
+        { "title": "Direction", "timeline": "Week 1–2", "description": "We shape the content, user journeys, visual direction, and technical plan." },
+        { "title": "Design and build", "timeline": "Week 2–5", "description": "We design and develop in focused milestones, sharing progress throughout." },
+        { "title": "Review and launch", "timeline": "Final week", "description": "We test, refine, document, and prepare the product for a confident launch." }
+      ],
+      "ctaTitle": "Our process keeps your project moving.", "ctaText": "Every step is documented and shared, so you always know what’s next and what to expect."
+    },
+    "pricingPage": {
+      "eyebrow": "Pricing", "title": "Transparent pricing. No hidden fees.",
+      "intro": "Fixed-scope packages with clear deliverables so you know the number before we start.",
+      "included": "Included", "ctaTitle": "Don’t see your exact project?",
+      "ctaText": "We quote custom work transparently, and every engagement begins with a short discovery call.", "ctaButton": "Get a custom quote"
+    },
+    "aboutPage": {
+      "eyebrow": "About", "title": "A small studio that ships big products.",
+      "intro": "Founded with a passion for digital excellence, Wired Creations blends design and development into projects that feel premium and launch-ready.",
+      "missionTitle": "Our mission", "missionText": "To empower founders and teams with modern digital products that look great and convert.",
+      "valuesTitle": "Our values", "values": ["Ship fast, iterate fast.", "Be transparent at every step.", "Build for durability, not for complexity."]
+    },
+    "blogPage": {
+      "eyebrow": "Blog", "title": "Insights from the build.",
+      "intro": "Design, development, and agency lessons that help you move faster and launch stronger.", "read": "Read article →"
+    },
+    "blogPost": { "notFoundTitle": "Post not found", "notFoundText": "The article you are looking for is unavailable. Explore our blog index instead.", "back": "Back to Blog" },
+    "contactPage": {
+      "eyebrow": "Contact", "title": "Say hello.", "intro": "Whether you have a project or a question, we’ll get back within one business day.",
+      "detailsTitle": "Contact details", "startingPrice": "Projects start from ₹8,000.", "messageLabel": "Message",
+      "success": "Message sent. We’ll be in touch soon.", "submit": "Send message", "submitting": "Sending…"
+    },
+    "startPage": {
+      "eyebrow": "Start a project", "title": "Let’s build something great.",
+      "intro": "Tell us about your project and we’ll reply within one business day with next steps.",
+      "projectTypeLabel": "Project type", "budgetLabel": "Budget range", "messageLabel": "Project description",
+      "success": "Thanks—your inquiry was sent. We’ll reply within one business day.", "submit": "Send inquiry", "submitting": "Sending…"
+    },
+    "meetingExtras": {
+      "points": ["30-minute consultation slots with Google Meet details included.", "Times shown in India Standard Time (GMT+05:30).", "For the best readability, open the full booking link in a separate tab."],
+      "calendarLabel": "Embedded Calendar", "calendarDescription": "Google scheduling experience", "timezone": "IST", "iframeTitle": "Wired Creations booking calendar"
+    },
+    "notFoundPage": {
+      "code": "404", "title": "Lost in the wires.", "text": "The page you are looking for doesn’t exist. Let’s get you back to a useful page.",
+      "home": "Home", "work": "See our work", "start": "Start a project"
+    },
+    "errors": {
+      "fallback": "Something went wrong. Please try again.",
+      "notConfigured": "The inquiry service is not configured. Please email us directly.",
+      "sendFailed": "We could not send your inquiry. Please try again.",
+      "timeout": "The request timed out. Please try again."
+    }
+  },
   "blogPosts": [
     {
       "slug": "mvp-design",

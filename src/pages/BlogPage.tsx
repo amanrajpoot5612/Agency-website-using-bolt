@@ -5,16 +5,17 @@ import { Seo } from '../components/Seo';
 import type { BlogPost } from '../types/content';
 
 const posts = data.blogPosts as BlogPost[];
+const copy = data.siteCopy.blogPage;
 
 export default function BlogPage() {
   return (
     <PageLayout>
-      <Seo title="Blog" description="Design, development, and digital product insights from Wired Creations." path="/blog" />
+      <Seo {...data.siteCopy.seo.blog} path="/blog" />
       <section className="bg-navy-950 pb-20">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
-          <p className="text-sm uppercase tracking-[0.32em] text-cyan-400">Blog</p>
-          <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">Insights from the build.</h1>
-          <p className="mt-6 max-w-2xl text-lg text-slate-300">Design, development, and agency lessons that help you move faster and launch stronger.</p>
+          <p className="text-sm uppercase tracking-[0.32em] text-cyan-400">{copy.eyebrow}</p>
+          <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">{copy.title}</h1>
+          <p className="mt-6 max-w-2xl text-lg text-slate-300">{copy.intro}</p>
 
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
             {posts.map((post) => (
@@ -25,7 +26,7 @@ export default function BlogPage() {
                 <div className="mt-6 flex items-center justify-between text-sm text-slate-500">
                   <span>{post.date}</span>
                   <Link to={`/blog/${post.slug}`} className="text-cyan-400 transition hover:text-white">
-                    Read more →
+                    {copy.read}
                   </Link>
                 </div>
               </article>

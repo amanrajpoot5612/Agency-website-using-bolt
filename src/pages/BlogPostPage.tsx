@@ -6,6 +6,7 @@ import { Seo } from '../components/Seo';
 import type { BlogPost } from '../types/content';
 
 export default function BlogPostPage() {
+  const copy = data.siteCopy.blogPost;
   const { slug } = useParams();
   const posts = data.blogPosts as BlogPost[];
   const post = slug ? posts.find((entry) => entry.slug === slug) : undefined;
@@ -13,12 +14,12 @@ export default function BlogPostPage() {
   if (!post) {
     return (
       <PageLayout>
-        <Seo title="Post Not Found" description="The requested Wired Creations article is unavailable." path={`/blog/${slug || ''}`} noindex />
+        <Seo {...data.siteCopy.seo.postNotFound} path={`/blog/${slug || ''}`} noindex />
         <div className="mx-auto max-w-4xl px-4 py-28 text-center sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-white">Post not found</h1>
-          <p className="mt-4 text-slate-300">The article you are looking for is unavailable. Explore our blog index instead.</p>
+          <h1 className="text-4xl font-bold text-white">{copy.notFoundTitle}</h1>
+          <p className="mt-4 text-slate-300">{copy.notFoundText}</p>
           <Link to="/blog" className="mt-8 inline-flex rounded-full bg-cyan-400 px-7 py-3 text-sm font-semibold text-navy-950 transition hover:bg-cyan-300">
-            Back to Blog
+            {copy.back}
           </Link>
         </div>
       </PageLayout>
@@ -36,7 +37,7 @@ export default function BlogPostPage() {
           <ReactMarkdown>{post.content}</ReactMarkdown>
         </div>
         <div className="mt-10">
-          <Link to="/blog" className="text-cyan-400 transition hover:text-white">← Back to all posts</Link>
+          <Link to="/blog" className="text-cyan-400 transition hover:text-white">← {copy.back}</Link>
         </div>
       </article>
     </PageLayout>

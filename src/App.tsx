@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import data from './Data/Data.json';
 
 const MainLayout = lazy(() => import('./Layout/MainLayout'));
 const WorkPage = lazy(() => import('./pages/WorkPage'));
@@ -19,7 +20,7 @@ const MeetingPage = lazy(() => import('./pages/MeetingPage'));
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<div role="status" className="flex min-h-screen items-center justify-center bg-navy-950 text-cyan-400">Loading…</div>}>
+      <Suspense fallback={<div role="status" className="flex min-h-screen items-center justify-center bg-navy-950 text-cyan-400">{data.siteCopy.common.loading}</div>}>
       <Routes>
         <Route path="/" element={<MainLayout />} />
         <Route path="/work" element={<WorkPage />} />
