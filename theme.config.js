@@ -2,7 +2,7 @@
  * Production theme selector.
  * Change only this number (0–5), then rebuild and deploy the website.
  */
-export const ACTIVE_THEME = 5;
+export const ACTIVE_THEME = 0;
 
 export const THEMES = [
   {
