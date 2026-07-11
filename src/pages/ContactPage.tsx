@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import PageLayout from '../Layout/PageLayout';
 import { Seo } from '../components/Seo';
+import { TurnstileWidget } from '../components/TurnstileWidget';
 import { useLeadSubmission } from '../hooks/useLeadSubmission';
 import data from '../Data/Data.json';
 import type { FooterData, LeadPayload } from '../types/content';
@@ -10,8 +11,15 @@ const initialForm: LeadPayload = { name: '', email: '', phone: '', projectType: 
 
 export default function ContactPage() {
   const [form, setForm] = useState(initialForm);
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileKey, setTurnstileKey] = useState(0);
   const { status, error, submit } = useLeadSubmission();
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); if (await submit(form)) setForm(initialForm); };
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (await submit(form, turnstileToken)) setForm(initialForm);
+    setTurnstileToken('');
+    setTurnstileKey((key) => key + 1);
+  };
   return (
     <PageLayout>
       <Seo title="Contact" description="Contact Wired Creations about a digital product, website, or partnership." path="/contact" />
@@ -23,8 +31,9 @@ export default function ContactPage() {
             <div><label htmlFor="contact-name" className="text-sm text-slate-200">Name</label><input id="contact-name" autoComplete="name" required value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} className="mt-2 w-full rounded-3xl border border-slate-800 bg-navy-900 px-4 py-3 text-white" /></div>
             <div><label htmlFor="contact-email" className="text-sm text-slate-200">Email</label><input id="contact-email" type="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} className="mt-2 w-full rounded-3xl border border-slate-800 bg-navy-900 px-4 py-3 text-white" /></div>
             <div><label htmlFor="contact-message" className="text-sm text-slate-200">Message</label><textarea id="contact-message" required value={form.message} onChange={(e) => setForm({...form, message: e.target.value})} className="mt-2 h-36 w-full rounded-3xl border border-slate-800 bg-navy-900 px-4 py-3 text-white" /></div>
+            <TurnstileWidget key={turnstileKey} onToken={setTurnstileToken} />
             <div aria-live="polite">{status === 'success' && <p className="text-green-300">Message sent. We’ll be in touch soon.</p>}{status === 'error' && <p className="text-red-300">{error}</p>}</div>
-            <button type="submit" disabled={status === 'loading'} className="w-full rounded-full bg-cyan-400 px-7 py-3 font-semibold text-navy-950 disabled:opacity-50">{status === 'loading' ? 'Sending…' : 'Send message'}</button>
+            <button type="submit" disabled={status === 'loading' || !turnstileToken} className="w-full rounded-full bg-cyan-400 px-7 py-3 font-semibold text-navy-950 disabled:opacity-50">{status === 'loading' ? 'Sending…' : 'Send message'}</button>
           </form>
         </div>
       </div></section>

@@ -8,12 +8,12 @@ export function useLeadSubmission() {
   const [status, setStatus] = useState<SubmissionStatus>('idle');
   const [error, setError] = useState('');
 
-  const submit = async (payload: LeadPayload) => {
+  const submit = async (payload: LeadPayload, turnstileToken: string) => {
     if (status === 'loading') return false;
     setStatus('loading');
     setError('');
     try {
-      await submitLead(payload);
+      await submitLead(payload, turnstileToken);
       setStatus('success');
       return true;
     } catch (caught) {

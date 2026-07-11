@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import PageLayout from '../Layout/PageLayout';
 import { Seo } from '../components/Seo';
+import { TurnstileWidget } from '../components/TurnstileWidget';
 import { useLeadSubmission } from '../hooks/useLeadSubmission';
 import type { LeadPayload } from '../types/content';
 import data from '../Data/Data.json';
@@ -11,10 +12,14 @@ const initialForm: LeadPayload = { name: '', email: '', phone: '', projectType: 
 
 export default function StartPage() {
   const [form, setForm] = useState(initialForm);
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileKey, setTurnstileKey] = useState(0);
   const { status, error, submit } = useLeadSubmission();
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (await submit(form)) setForm(initialForm);
+    if (await submit(form, turnstileToken)) setForm(initialForm);
+    setTurnstileToken('');
+    setTurnstileKey((key) => key + 1);
   };
 
   return (
@@ -30,8 +35,9 @@ export default function StartPage() {
             <div><label htmlFor="start-budget" className="block text-sm font-medium text-slate-200">Budget range</label><select id="start-budget" name="budget" value={form.budget} onChange={(e) => setForm({...form, budget: e.target.value})} className="mt-3 w-full rounded-3xl border border-slate-800 bg-navy-900 px-4 py-3 text-white"><option>₹8,000 - ₹15,000</option><option>₹18,000 - ₹35,000</option><option>₹25,000 - ₹80,000</option><option>₹80,000+</option></select></div>
           </div>
           <div className="rounded-[2rem] border border-cyan-400/10 bg-navy-950/70 p-8"><label htmlFor="start-message" className="block text-sm font-medium text-slate-200">Project description</label><textarea id="start-message" name="message" required value={form.message} onChange={(e) => setForm({...form, message: e.target.value})} className="mt-3 h-40 w-full rounded-3xl border border-slate-800 bg-navy-900 px-4 py-4 text-white" /></div>
+          <TurnstileWidget key={turnstileKey} onToken={setTurnstileToken} />
           <div aria-live="polite">{status === 'success' && <p className="text-green-300">Thanks—your inquiry was sent. We’ll reply within one business day.</p>}{status === 'error' && <p className="text-red-300">{error}</p>}</div>
-          <button type="submit" disabled={status === 'loading'} className="rounded-full bg-cyan-400 px-10 py-4 font-semibold text-navy-950 disabled:opacity-50">{status === 'loading' ? 'Sending…' : 'Send inquiry'}</button>
+          <button type="submit" disabled={status === 'loading' || !turnstileToken} className="rounded-full bg-cyan-400 px-10 py-4 font-semibold text-navy-950 disabled:opacity-50">{status === 'loading' ? 'Sending…' : 'Send inquiry'}</button>
         </form>
       </div></section>
     </PageLayout>

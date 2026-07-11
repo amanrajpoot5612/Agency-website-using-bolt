@@ -68,7 +68,10 @@ npm run test:e2e
 ```
 
 Runtime configuration
-- Set `VITE_BACKEND_URI` to the backend origin without a trailing slash. All inquiry forms post to `/schedule-consultation` on that origin.
+- Inquiry forms post to the same-origin `/api/schedule-consultation` Vercel function. It verifies Cloudflare Turnstile, stores the lead in MongoDB, and then sends the Resend notification.
+- Set `MONGODB_URI`, `TURNSTILE_SECRET_KEY`, `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, and `LEAD_NOTIFICATION_EMAIL` as server-only environment variables; only `VITE_TURNSTILE_SITE_KEY` is safe for the browser. See `.env.example`.
+- `RESEND_FROM_EMAIL` must use a domain verified in Resend. Never expose `RESEND_API_KEY` through a `VITE_` variable.
+- Optionally set `VITE_BACKEND_URI` to a separate backend origin without a trailing slash; the client will post to `/api/schedule-consultation` on that origin.
 - Vercel deployment uses `vercel.json` to route nested SPA URLs to `index.html`.
 
 Content conventions
