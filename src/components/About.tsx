@@ -36,7 +36,7 @@ export const About = ({ data }: AboutProps) => {
               isVisible ? "animate-slideInLeft" : "opacity-0"
             }`}
           >
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
               <span className="text-white">{data.heading.headingP1}</span>
               <span className="text-cyan-400">{data.heading.headingP2}</span>
             </h2>

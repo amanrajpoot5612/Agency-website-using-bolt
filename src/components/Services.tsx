@@ -40,7 +40,7 @@ export const Services = ({ data }: ServicesProps) => {
           <p className="text-sm uppercase tracking-[0.28em] text-cyan-300/80 mb-4">
             What we ship
           </p>
-          <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold leading-tight">
             <span className="text-white">{data.heading.headingP1}</span>
             <span className="text-cyan-400">{data.heading.headingP2}</span>
           </h2>

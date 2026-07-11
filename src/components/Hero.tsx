@@ -179,7 +179,7 @@ export const Hero = ({ onNavigate, data }: HeroProps) => {
               Product launches designed for founders
             </span>
 
-            <h1 className="mt-6 text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl leading-tight">
+            <h1 className="mt-6 text-4xl font-semibold leading-[1.12] tracking-tight text-white sm:text-5xl lg:text-6xl">
               <span>{data.heading.headingP1}</span>
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-500">
@@ -187,7 +187,7 @@ export const Hero = ({ onNavigate, data }: HeroProps) => {
               </span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+            <p className="mt-5 max-w-xl text-base leading-7 text-slate-300">
               {data.subHeading}
             </p>
 
@@ -214,7 +214,7 @@ export const Hero = ({ onNavigate, data }: HeroProps) => {
                   className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm"
                   style={{ animationDelay: `${0.15 + idx * 0.15}s` }}
                 >
-                  <div className="text-3xl font-semibold text-cyan-400">{matrix.number}</div>
+                  <div className="text-2xl font-semibold text-cyan-400">{matrix.number}</div>
                   <p className="mt-2 text-sm text-slate-300">{matrix.label}</p>
                 </div>
               ))}
@@ -224,7 +224,7 @@ export const Hero = ({ onNavigate, data }: HeroProps) => {
           <div className="space-y-6">
             <div className="rounded-[2rem] border border-cyan-400/20 bg-navy-900/70 p-8 shadow-[0_30px_90px_rgba(0,217,255,0.08)]">
               <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/80">Featured workflow</p>
-              <h2 className="mt-4 text-2xl font-semibold text-white">
+              <h2 className="mt-4 text-xl font-semibold leading-snug text-white">
                 Launch digital products faster with clarity and craftsmanship.
               </h2>
               <p className="mt-4 text-sm leading-6 text-slate-300">

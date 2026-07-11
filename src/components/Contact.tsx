@@ -54,7 +54,7 @@ const Contact = () => {
             isVisible ? "animate-fadeInUp" : "opacity-0"
           }`}
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             <span className="text-white">Get In</span>
             <span className="text-cyan-400"> Touch</span>
           </h2>

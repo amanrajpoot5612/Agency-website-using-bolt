@@ -8,12 +8,20 @@
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  font-size: 15px;
 }
 
 body {
   background-color: #0a0e14;
   color: #c8d6e5;
   font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+}
+
+@media (max-width: 639px) {
+  html {
+    font-size: 14.5px;
+  }
 }
 
 * {

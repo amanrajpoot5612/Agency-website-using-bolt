@@ -52,7 +52,7 @@ export const Navigation = () => {
         >
           <Link
             to="/"
-            className="text-2xl font-semibold tracking-tight text-white transition-opacity hover:opacity-80"
+            className="text-xl font-semibold tracking-tight text-white transition-opacity hover:opacity-80"
           >
             <span className="text-white">Wired</span>
             <span className="text-cyan-400"> Creations</span>
@@ -116,7 +116,7 @@ export const Navigation = () => {
                 to={link.to}
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
-                  `block w-full rounded-3xl border border-white/5 px-5 py-4 text-left text-2xl font-semibold transition-colors ${
+                  `block w-full rounded-3xl border border-white/5 px-5 py-3 text-left text-xl font-semibold transition-colors ${
                     isActive ? 'text-cyan-400 bg-white/5' : 'text-gray-300 hover:text-cyan-400'
                   }`
                 }

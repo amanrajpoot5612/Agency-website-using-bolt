@@ -25,7 +25,7 @@ export const Testimonials = ({ data }: TestimonialsProps) => {
     <section ref={ref} id="testimonials" className="min-h-screen bg-gradient-to-b from-navy-950 to-navy-900 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`mb-16 transition-all duration-700 ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             <span className="text-white">{data.heading.headingP1}</span>
             <span className="text-cyan-400">{data.heading.headingP2}</span>
           </h2>
