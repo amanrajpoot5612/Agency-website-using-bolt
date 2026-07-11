@@ -9,11 +9,13 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   font-size: 15px;
+  --theme-background: theme('colors.navy.900');
+  --theme-accent: theme('colors.cyan.400');
 }
 
 body {
-  background-color: #0a0e14;
-  color: #c8d6e5;
+  background-color: theme('colors.navy.950');
+  color: theme('colors.slate.200');
   font-family: 'Sora', sans-serif;
   line-height: 1.6;
 }
@@ -29,7 +31,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid #00d9ff;
+  outline: 2px solid theme('colors.cyan.400');
   outline-offset: 3px;
 }
 
@@ -45,7 +47,7 @@ body {
   }
 
   .dot-grid {
-    background-image: radial-gradient(circle, rgba(0,217,255,0.07) 1px, transparent 1px);
+    background-image: radial-gradient(circle, color-mix(in srgb, theme('colors.cyan.400') 7%, transparent) 1px, transparent 1px);
     background-size: 28px 28px;
   }
 
@@ -61,7 +63,7 @@ body {
   .section-rule {
     width: 48px;
     height: 2px;
-    background: #00d9ff;
+    background: theme('colors.cyan.400');
     margin-bottom: 1.5rem;
   }
 }

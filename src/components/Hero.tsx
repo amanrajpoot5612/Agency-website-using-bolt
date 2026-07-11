@@ -33,6 +33,9 @@ export const Hero = ({ onNavigate, data }: HeroProps) => {
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+    const styles = getComputedStyle(document.documentElement);
+    const accentColor = styles.getPropertyValue('--theme-accent').trim();
+    const backgroundColor = styles.getPropertyValue('--theme-background').trim();
 
     const resizeCanvas = () => {
       canvas.width = canvas.offsetWidth;
@@ -111,7 +114,8 @@ export const Hero = ({ onNavigate, data }: HeroProps) => {
         [3, 7],
       ];
 
-      ctx.strokeStyle = "rgba(0, 217, 255, 0.45)";
+      ctx.strokeStyle = accentColor;
+      ctx.globalAlpha = 0.45;
       ctx.lineWidth = 1.6;
 
       edges.forEach(([start, end]) => {
@@ -123,12 +127,15 @@ export const Hero = ({ onNavigate, data }: HeroProps) => {
         ctx.lineTo(x + x2 * scale2, y + y2 * scale2);
         ctx.stroke();
       });
+      ctx.globalAlpha = 1;
     };
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "rgba(15, 20, 25, 0.88)";
+      ctx.fillStyle = backgroundColor;
+      ctx.globalAlpha = 0.88;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.globalAlpha = 1;
 
       animationTime += 0.012;
 
@@ -168,7 +175,7 @@ export const Hero = ({ onNavigate, data }: HeroProps) => {
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full opacity-60"
-        style={{ backgroundColor: '#0f1419' }}
+        style={{ backgroundColor: 'var(--theme-background)' }}
       />
       <div className="absolute inset-0 bg-navy-950/75" />
 
@@ -222,7 +229,7 @@ export const Hero = ({ onNavigate, data }: HeroProps) => {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-[2rem] border border-cyan-400/20 bg-navy-900/70 p-8 shadow-[0_30px_90px_rgba(0,217,255,0.08)]">
+            <div className="rounded-[2rem] border border-cyan-400/20 bg-navy-900/70 p-8 shadow-2xl shadow-cyan-400/10">
               <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/80">Featured workflow</p>
               <h2 className="mt-4 text-xl font-semibold leading-snug text-white">
                 Launch digital products faster with clarity and craftsmanship.

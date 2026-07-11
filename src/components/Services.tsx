@@ -55,7 +55,7 @@ export const Services = ({ data }: ServicesProps) => {
             return (
               <div
                 key={index}
-                className={`group relative overflow-hidden rounded-[2rem] border border-cyan-400/15 bg-gradient-to-br from-navy-900/95 to-navy-800/80 p-8 shadow-[0_35px_90px_rgba(0,217,255,0.08)] transition duration-500 transform hover:-translate-y-1 hover:shadow-cyan-400/20 ${
+                className={`group relative overflow-hidden rounded-[2rem] border border-cyan-400/15 bg-gradient-to-br from-navy-900/95 to-navy-800/80 p-8 shadow-2xl shadow-cyan-400/10 transition duration-500 transform hover:-translate-y-1 hover:shadow-cyan-400/20 ${
                   isVisible ? "animate-fadeInUp" : "opacity-0"
                 } ${largeCard ? "lg:col-span-2 lg:row-span-2" : ""}`}
                 style={{ animationDelay: `${index * 0.1}s` }}
