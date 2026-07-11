@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Footer } from '../components/Footer';
 import PageLayout from '../Layout/PageLayout';
+import { Seo } from '../components/Seo';
 
 export default function NotFoundPage() {
   return (
     <PageLayout>
+      <Seo title="Page Not Found" description="The requested page does not exist." path={window.location.pathname} noindex />
       <section className="bg-navy-950 pb-20">
         <div className="mx-auto max-w-5xl px-4 py-28 text-center sm:px-6 lg:px-8">
           <p className="text-lg uppercase tracking-[0.32em] text-cyan-400">404</p>
@@ -17,7 +18,6 @@ export default function NotFoundPage() {
           </div>
         </div>
       </section>
-      <Footer />
     </PageLayout>
   );
 }

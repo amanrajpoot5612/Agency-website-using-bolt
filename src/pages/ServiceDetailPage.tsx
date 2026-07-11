@@ -1,51 +1,35 @@
 import { useParams, Link } from 'react-router-dom';
-import { Footer } from '../components/Footer';
 import PageLayout from '../Layout/PageLayout';
+import { Seo } from '../components/Seo';
 import data from '../Data/Data.json';
+import type { Service } from '../types/content';
+
+const services = data.services.services as Service[];
 
 export default function ServiceDetailPage() {
   const { slug } = useParams();
-  const services = (data as any).servicesList || (data as any).services?.services || [];
-  const service = slug ? services.find((s: any) => s.slug === slug || s.title?.toLowerCase().replace(/\s+/g, '-') === slug) : null;
-
-  if (!service) {
-    return (
-      <PageLayout>
-        <section className="mx-auto max-w-5xl px-4 py-28 text-center sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-white">Service not found</h1>
-          <p className="mt-4 text-slate-300">The service you requested does not exist. Please return to the services list.</p>
-          <Link to="/services" className="mt-8 inline-flex rounded-full bg-cyan-400 px-7 py-3 text-sm font-semibold text-navy-950 transition hover:bg-cyan-300">
-            Back to Services
-          </Link>
-        </section>
-      </PageLayout>
-    );
-  }
+  const service = services.find((entry) => entry.slug === slug);
+  if (!service) return (
+    <PageLayout>
+      <Seo title="Service Not Found" description="The requested Wired Creations service is unavailable." path={`/services/${slug || ''}`} noindex />
+      <section className="mx-auto max-w-5xl px-4 py-28 text-center"><h1 className="text-4xl font-bold text-white">Service not found</h1><Link to="/services" className="mt-8 inline-flex rounded-full bg-cyan-400 px-7 py-3 font-semibold text-navy-950">Back to Services</Link></section>
+    </PageLayout>
+  );
 
   return (
     <PageLayout>
-      <section className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
+      <Seo title={service.title} description={service.description} path={`/services/${service.slug}`} />
+      <article className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
         <p className="text-sm uppercase tracking-[0.32em] text-cyan-400">Service Detail</p>
-        <h1 className="mt-6 text-4xl font-bold tracking-tight text-white">{service.title}</h1>
-        <p className="mt-6 text-lg leading-8 text-slate-300">{service.description || service.intro || ''}</p>
-
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {(service.features || service.bullets || []).map((item: string) => (
-            <div key={item} className="rounded-3xl border border-cyan-400/10 bg-navy-950/70 p-6">
-              <p className="text-slate-300">{item}</p>
-            </div>
-          ))}
+        <h1 className="mt-6 text-4xl font-bold text-white sm:text-5xl">{service.title}</h1>
+        <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">{service.description}</p>
+        <div className="mt-14 grid gap-10 lg:grid-cols-2">
+          <section><h2 className="text-2xl font-semibold text-white">What you receive</h2><ul className="mt-5 space-y-3 text-slate-300">{service.deliverables.map((item) => <li key={item}>✓ {item}</li>)}</ul></section>
+          <section><h2 className="text-2xl font-semibold text-white">How we work</h2><ol className="mt-5 space-y-3 text-slate-300">{service.process.map((item, index) => <li key={item}><span className="mr-2 text-cyan-400">{index + 1}.</span>{item}</li>)}</ol></section>
         </div>
-
-        <div className="mt-14 rounded-3xl border border-cyan-400/20 bg-navy-900/70 p-10 text-center">
-          <h2 className="text-2xl font-semibold text-white">Want to discuss this service for your project?</h2>
-          <p className="mt-3 text-slate-300">We can tailor the scope to your product, timeline, and budget.</p>
-          <Link to="/start" className="mt-8 inline-flex rounded-full bg-cyan-400 px-8 py-3 text-sm font-semibold text-navy-950 transition hover:bg-cyan-300">
-            Start a Project
-          </Link>
-        </div>
-      </section>
-      <Footer />
+        <section className="mt-14"><h2 className="text-2xl font-semibold text-white">Frequently asked questions</h2><div className="mt-5 space-y-4">{service.faqs.map((faq) => <div key={faq.question} className="rounded-3xl border border-cyan-400/10 bg-navy-900/70 p-6"><h3 className="font-semibold text-white">{faq.question}</h3><p className="mt-2 text-slate-300">{faq.answer}</p></div>)}</div></section>
+        <div className="mt-14 rounded-3xl border border-cyan-400/20 bg-navy-900/70 p-10 text-center"><h2 className="text-2xl font-semibold text-white">Want to discuss this service?</h2><Link to="/start" className="mt-8 inline-flex rounded-full bg-cyan-400 px-8 py-3 font-semibold text-navy-950">Start a Project</Link></div>
+      </article>
     </PageLayout>
   );
 }

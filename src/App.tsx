@@ -1,23 +1,25 @@
-import data from './Data/Data.json';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainLayout from './Layout/MainLayout';
-import WorkPage from './pages/WorkPage';
-import CaseStudyPage from './pages/CaseStudyPage';
-import ServicesPage from './pages/ServicesPage';
-import ServiceDetailPage from './pages/ServiceDetailPage';
-import ProcessPage from './pages/ProcessPage';
-import PricingPage from './pages/PricingPage';
-import AboutPage from './pages/AboutPage';
-import BlogPage from './pages/BlogPage';
-import BlogPostPage from './pages/BlogPostPage';
-import StartPage from './pages/StartPage';
-import ContactPage from './pages/ContactPage';
-import NotFoundPage from './pages/NotFoundPage';
-import { Meeting } from './components/Meeting';
+import { lazy, Suspense } from 'react';
+
+const MainLayout = lazy(() => import('./Layout/MainLayout'));
+const WorkPage = lazy(() => import('./pages/WorkPage'));
+const CaseStudyPage = lazy(() => import('./pages/CaseStudyPage'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'));
+const ProcessPage = lazy(() => import('./pages/ProcessPage'));
+const PricingPage = lazy(() => import('./pages/PricingPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
+const StartPage = lazy(() => import('./pages/StartPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const MeetingPage = lazy(() => import('./pages/MeetingPage'));
 
 function App() {
   return (
     <BrowserRouter>
+      <Suspense fallback={<div role="status" className="flex min-h-screen items-center justify-center bg-navy-950 text-cyan-400">Loading…</div>}>
       <Routes>
         <Route path="/" element={<MainLayout />} />
         <Route path="/work" element={<WorkPage />} />
@@ -31,9 +33,10 @@ function App() {
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/start" element={<StartPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/meeting" element={<Meeting data={data.meeting} />} />
+        <Route path="/meeting" element={<MeetingPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

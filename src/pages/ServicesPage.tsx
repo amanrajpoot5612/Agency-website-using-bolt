@@ -1,47 +1,30 @@
-import { Footer } from '../components/Footer';
-import PageLayout from '../Layout/PageLayout';
 import { Link } from 'react-router-dom';
+import PageLayout from '../Layout/PageLayout';
+import { Seo } from '../components/Seo';
 import data from '../Data/Data.json';
+import type { Service } from '../types/content';
+
+const services = data.services.services as Service[];
 
 export default function ServicesPage() {
-  const services = (data as any).servicesList || (data as any).services?.services || [];
-
   return (
     <PageLayout>
-      <section className="bg-navy-950 pb-20">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
-          <p className="text-sm uppercase tracking-[0.32em] text-cyan-400">Services</p>
-          <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">What we build.</h1>
-          <p className="mt-6 max-w-2xl text-lg text-slate-300">Strategy, design, and development tailored to ambitious businesses and early-stage products.</p>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service: any) => (
-              <Link
-                key={service.slug || service.title}
-                to={`/services/${service.slug || service.title?.toLowerCase().replace(/\s+/g, '-')}`}
-                className="group rounded-[2rem] border border-cyan-400/10 bg-navy-950/70 p-8 transition hover:-translate-y-1 hover:border-cyan-400/20"
-              >
-                <span className="text-sm uppercase tracking-[0.32em] text-cyan-400">Service</span>
-                <h2 className="mt-4 text-2xl font-semibold text-white">{service.title}</h2>
-                <p className="mt-3 text-slate-400">{service.description}</p>
-                <span className="mt-6 inline-flex text-sm font-semibold text-cyan-400 transition group-hover:text-white">What’s included →</span>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-16 rounded-3xl border border-cyan-400/20 bg-navy-900/70 p-10 text-center">
-            <h2 className="text-3xl font-semibold text-white">Not sure which service fits your project?</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-slate-300">We often combine design and development work into a single package for faster delivery and stronger outcomes.</p>
-            <Link
-              to="/start"
-              className="mt-8 inline-flex rounded-full bg-cyan-400 px-8 py-3 text-sm font-semibold text-navy-950 transition hover:bg-cyan-300"
-            >
-              Book a free 30-min call
-            </Link>
-          </div>
+      <Seo title="Services" description="Explore portfolio, website, landing page, mobile app, CRM, and analytics services from Wired Creations." path="/services" />
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+        <p className="text-sm uppercase tracking-[0.32em] text-cyan-400">Services</p>
+        <h1 className="mt-6 text-4xl font-bold text-white sm:text-5xl">Built around your next milestone.</h1>
+        <p className="mt-6 max-w-2xl text-lg text-slate-300">Focused design and engineering services for launches, growth, and better customer workflows.</p>
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <article key={service.slug} className="rounded-3xl border border-cyan-400/10 bg-navy-900/70 p-7">
+              <h2 className="text-2xl font-semibold text-white">{service.title}</h2>
+              <p className="mt-4 text-slate-300">{service.description}</p>
+              <Link to={`/services/${service.slug}`} className="mt-6 inline-flex text-cyan-400 hover:text-white">Explore service →</Link>
+            </article>
+          ))}
         </div>
+        <div className="mt-14 text-center"><Link to="/start" className="inline-flex rounded-full bg-cyan-400 px-8 py-3 font-semibold text-navy-950">Discuss your project</Link></div>
       </section>
-      <Footer />
     </PageLayout>
   );
 }

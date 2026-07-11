@@ -1,9 +1,10 @@
-import { Footer } from '../components/Footer';
 import PageLayout from '../Layout/PageLayout';
+import { Seo } from '../components/Seo';
 
 export default function AboutPage() {
   return (
     <PageLayout>
+      <Seo title="About" description="Meet Wired Creations, a focused digital design and development studio." path="/about" />
       <section className="bg-navy-950 pb-20">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
           <p className="text-sm uppercase tracking-[0.32em] text-cyan-400">About</p>
@@ -27,9 +28,9 @@ export default function AboutPage() {
 
           <div className="mt-16 grid gap-6 sm:grid-cols-3">
             {[
-              { label: 'Projects', value: '40+' },
+              { label: 'Projects', value: '10+' },
               { label: 'Years', value: '1+' },
-              { label: 'Clients', value: '10+' },
+              { label: 'Clients', value: '5+' },
             ].map((stat) => (
               <div key={stat.label} className="rounded-3xl border border-cyan-400/10 bg-navy-950/70 p-8 text-center">
                 <p className="text-4xl font-bold text-white">{stat.value}</p>
@@ -39,7 +40,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      <Footer />
     </PageLayout>
   );
 }

@@ -8,6 +8,7 @@ import { Testimonials } from '../components/Testimonials';
 import { About } from '../components/About';
 import { Contact } from '../components/Contact';
 import { Footer } from '../components/Footer';
+import { Seo } from '../components/Seo';
 
 const MainLayout = () => {
   const handleNavigate = (section: string) => {
@@ -19,6 +20,7 @@ const MainLayout = () => {
 
   return (
     <div className="bg-navy-950">
+      <Seo title="Wired Creations" description="Wired Creations designs and builds polished websites, digital products, and growth-ready experiences." path="/" />
       <Navigation />
       <Hero onNavigate={handleNavigate} data={data.hero} />
       <Services data={data.services} />

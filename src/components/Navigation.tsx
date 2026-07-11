@@ -25,6 +25,19 @@ export const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false);
+    };
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen]);
+
   return (
     <>
       <nav
@@ -69,9 +82,12 @@ export const Navigation = () => {
               Book a Call
             </Link>
             <button
+              type="button"
               className="rounded-full p-2 text-cyan-300 hover:text-cyan-100 md:hidden"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -80,10 +96,11 @@ export const Navigation = () => {
       </nav>
 
       {isOpen && (
-        <div className="fixed inset-0 z-50 overflow-hidden bg-navy-950/95 px-8 pt-8 backdrop-blur-xl md:hidden">
+        <div id="mobile-navigation" role="dialog" aria-modal="true" aria-label="Mobile navigation" className="fixed inset-0 z-50 overflow-y-auto bg-navy-950/95 px-8 pt-8 backdrop-blur-xl md:hidden">
           <div className="flex items-center justify-between">
             <div className="text-lg font-semibold text-white">Menu</div>
             <button
+              type="button"
               onClick={() => setIsOpen(false)}
               className="rounded-full bg-white/5 p-3 text-cyan-400 transition hover:bg-white/10"
               aria-label="Close menu"

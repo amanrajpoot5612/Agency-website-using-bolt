@@ -1,68 +1,56 @@
-import { Footer } from '../components/Footer';
-import PageLayout from '../Layout/PageLayout';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PageLayout from '../Layout/PageLayout';
+import { Seo } from '../components/Seo';
 import data from '../Data/Data.json';
+import type { Project } from '../types/content';
+
+const projects = data.portfolio.projects as Project[];
 
 export default function WorkPage() {
-  const projects = (data as any).projects || (data as any).portfolio?.projects || [];
+  const [category, setCategory] = useState('All');
+  const categories = ['All', ...Array.from(new Set(projects.map((project) => project.category)))];
+  const filteredProjects = category === 'All' ? projects : projects.filter((project) => project.category === category);
 
   return (
     <PageLayout>
+      <Seo title="Our Work" description="Explore digital products, commerce experiences, platforms, and websites created by Wired Creations." path="/work" />
       <section className="bg-navy-950 pb-20">
         <div className="mx-auto max-w-6xl px-4 py-20 text-center sm:px-6 lg:px-8">
           <p className="text-sm uppercase tracking-[0.32em] text-cyan-400">Our work</p>
-          <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Work that speaks for itself.
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
-            40+ launches across web, product, and e-commerce. Review our case studies and find the right fit for your project.
-          </p>
+          <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">Work that speaks for itself.</h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">10+ launches across web, product, and e-commerce. Explore our work and find the right fit for your project.</p>
         </div>
-
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 flex flex-wrap gap-3 text-sm">
-            {['All', 'Web Design', 'Web App', 'Mobile', 'Branding', 'E-commerce', 'SaaS'].map((label) => (
-              <button
-                key={label}
-                className="rounded-full border border-cyan-500/30 bg-navy-900/70 px-4 py-2 text-cyan-200 transition hover:border-cyan-400 hover:bg-cyan-500/10"
-              >
+          <div className="mb-4 flex flex-wrap gap-3" aria-label="Filter projects by category">
+            {categories.map((label) => (
+              <button type="button" key={label} aria-pressed={category === label} onClick={() => setCategory(label)} className={`rounded-full border px-4 py-2 text-sm transition ${category === label ? 'border-cyan-400 bg-cyan-400 text-navy-950' : 'border-cyan-500/30 bg-navy-900/70 text-cyan-200 hover:border-cyan-400'}`}>
                 {label}
               </button>
             ))}
           </div>
-
+          <p className="mb-8 text-sm text-slate-400" aria-live="polite">Showing {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}</p>
           <div className="grid gap-6 md:grid-cols-2">
-            {projects.map((project: any) => (
-              <article key={project.slug || project.id || project.title} className="overflow-hidden rounded-[2rem] border border-cyan-400/10 bg-navy-950/80 p-6 shadow-2xl shadow-cyan-500/5 transition hover:-translate-y-1 hover:border-cyan-400/20">
-                <div className="mb-6 h-64 rounded-3xl bg-slate-800" style={{backgroundImage: project.thumbnail ? `url(${project.thumbnail})` : undefined, backgroundSize: 'cover', backgroundPosition: 'center'}} />
-                <div className="space-y-3">
-                  <span className="inline-flex rounded-full bg-cyan-500/10 px-3 py-1 text-xs uppercase tracking-[0.24em] text-cyan-300">Project</span>
-                  <h2 className="text-2xl font-semibold text-white">{project.title}</h2>
-                  <p className="text-slate-400">{project.description || project.industry || ''}</p>
-                </div>
-                <div className="mt-6 flex items-center justify-between">
-                  <div className="text-sm text-slate-400">{(project.industry || project.category?.[0] || '')} · {project.year || ''}</div>
-                  <Link to={`/work/${project.slug || project.id || ''}`} className="text-cyan-400 transition hover:text-white">
-                    View case study →
-                  </Link>
+            {filteredProjects.map((project) => (
+              <article key={project.slug} className="overflow-hidden rounded-[2rem] border border-cyan-400/10 bg-navy-950/80 p-6 shadow-2xl shadow-cyan-500/5 transition hover:-translate-y-1 hover:border-cyan-400/20">
+                <img src={project.image} alt={`${project.title} project preview`} className="mb-6 h-64 w-full rounded-3xl object-cover" loading="lazy" />
+                <span className="inline-flex rounded-full bg-cyan-500/10 px-3 py-1 text-xs uppercase tracking-[0.24em] text-cyan-300">{project.category}</span>
+                <h2 className="mt-3 text-2xl font-semibold text-white">{project.title}</h2>
+                <p className="mt-3 text-slate-400">{project.description}</p>
+                <div className="mt-6 flex items-center justify-between gap-4">
+                  <span className="text-sm text-slate-400">{project.year}</span>
+                  <Link to={`/work/${project.slug}`} className="text-cyan-400 transition hover:text-white">View case study →</Link>
                 </div>
               </article>
             ))}
           </div>
-
           <div className="mt-12 rounded-3xl border border-cyan-400/20 bg-navy-900/70 p-10 text-center">
             <h2 className="text-3xl font-semibold text-white">Ready to talk through your next digital product?</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-slate-300">If you want work that converts and feels premium, let’s plan the right path together.</p>
-            <Link
-              to="/start"
-              className="mt-8 inline-flex rounded-full bg-cyan-400 px-8 py-3 text-sm font-semibold text-navy-950 transition hover:bg-cyan-300"
-            >
-              Let’s Talk →
-            </Link>
+            <p className="mx-auto mt-4 max-w-2xl text-slate-300">Let’s plan the right path for work that converts and feels premium.</p>
+            <Link to="/start" className="mt-8 inline-flex rounded-full bg-cyan-400 px-8 py-3 text-sm font-semibold text-navy-950 transition hover:bg-cyan-300">Let’s Talk →</Link>
           </div>
         </div>
       </section>
-      <Footer />
     </PageLayout>
   );
 }

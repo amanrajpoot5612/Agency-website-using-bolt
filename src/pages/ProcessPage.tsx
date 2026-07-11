@@ -1,5 +1,5 @@
-import { Footer } from '../components/Footer';
 import PageLayout from '../Layout/PageLayout';
+import { Seo } from '../components/Seo';
 
 const phases = [
   { title: 'Discovery', timeline: 'Week 1', description: 'Strategy call, scope doc, and project kickoff.' },
@@ -12,6 +12,7 @@ const phases = [
 export default function ProcessPage() {
   return (
     <PageLayout>
+      <Seo title="Our Process" description="See how Wired Creations moves projects from discovery through design, development, review, and launch." path="/process" />
       <section className="bg-navy-950 pb-20">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
           <p className="text-sm uppercase tracking-[0.32em] text-cyan-400">Process</p>
@@ -39,7 +40,6 @@ export default function ProcessPage() {
           </div>
         </div>
       </section>
-      <Footer />
     </PageLayout>
   );
 }

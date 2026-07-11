@@ -20,6 +20,11 @@ body {
   box-sizing: border-box;
 }
 
+:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 3px;
+}
+
 /* Utilities */
 @layer utilities {
   .scrollbar-hide {
@@ -126,4 +131,14 @@ body {
 
 .perspective {
   perspective: 1000px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

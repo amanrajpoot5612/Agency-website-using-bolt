@@ -102,6 +102,7 @@ export const Meeting = ({ data }: MeetingProps) => {
                 {data.buttons.button1.label}
               </a>
               <button
+                type="button"
                 onClick={handleOpenLightMode}
                 className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-8 py-3 text-navy-950 transition hover:bg-cyan-300"
               >

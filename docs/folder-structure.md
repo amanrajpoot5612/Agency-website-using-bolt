@@ -21,7 +21,6 @@ Purpose: This file explains the repository layout and the role of key files/fold
     - `MeetingLayout.tsx` (if present) — alternate layout for meeting route.
   - **hooks/**: custom hooks (e.g., `useScrollAnimation.ts`) for visibility/animations.
   - **ui/**: small UI primitives (e.g., `ConutryCode.tsx` country code picker).
-  - **config/**: runtime constants (e.g., backend URIs)
   - **theme/**: (reserved) theme tokens or additional style helpers.
 
 - **docs/**: developer-facing docs (this folder) — contains design and structure guides.
@@ -58,6 +57,23 @@ npm run dev
 ```bash
 npm run build
 ```
+
+- Run quality checks:
+
+```bash
+npm run lint
+npm run typecheck
+npm run test:run
+npm run test:e2e
+```
+
+Runtime configuration
+- Set `VITE_BACKEND_URI` to the backend origin without a trailing slash. All inquiry forms post to `/schedule-consultation` on that origin.
+- Vercel deployment uses `vercel.json` to route nested SPA URLs to `index.html`.
+
+Content conventions
+- `Data.json` has one canonical project collection at `portfolio.projects` and one canonical service collection at `services.services`.
+- Project and service slugs are public URLs; update `public/sitemap.xml` when adding or removing them.
 
 Notes & conventions
 - Component files use TypeScript React (.tsx).

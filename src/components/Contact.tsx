@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { backend_uri } from "../config/config.js";
 import { Send, AlertCircle, CheckCircle } from "lucide-react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation.js";
+import { useLeadSubmission } from "../hooks/useLeadSubmission";
 
 const Contact = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -14,8 +14,7 @@ const Contact = () => {
     timeline: "",
     message: "",
   });
-  const [status, setStatus] = useState("idle");
-  const [error, setError] = useState("");
+  const { status, error, submit } = useLeadSubmission();
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -30,29 +29,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("loading");
-    setError("");
-
-    try {
-      const apiURL = `${backend_uri}/schedule-consultation`;
-      const response = await fetch(apiURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "Unknown error");
-      }
-
-      console.log("data", data);
-      
-
-      setStatus("success");
+    if (await submit(formData)) {
       setFormData({
         name: "",
         email: "",
@@ -63,19 +40,6 @@ const Contact = () => {
         message: "",
       });
 
-      setTimeout(() => {
-        setStatus("idle");
-      }, 4000);
-    } catch (err) {
-      setStatus("error");
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("Something went wrong");
-      }
-      setTimeout(() => {
-        setStatus("idle");
-      }, 4000);
     }
   };
   return (
@@ -119,7 +83,7 @@ const Contact = () => {
           )}
 
           {status === "error" && (
-            <div className="mb-6 p-4 bg-red-900/30 border border-red-500/50 rounded-lg flex gap-3">
+            <div className="mb-6 p-4 bg-red-900/30 border border-red-500/50 rounded-lg flex gap-3" aria-live="assertive">
               <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-semibold text-red-300">Error</h3>
@@ -131,11 +95,13 @@ const Contact = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-semibold text-white mb-2">
+                <label htmlFor="home-name" className="block text-sm font-semibold text-white mb-2">
                   Name
                 </label>
                 <input
                   type="text"
+                  id="home-name"
+                  autoComplete="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
@@ -145,11 +111,13 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-white mb-2">
+                <label htmlFor="home-email" className="block text-sm font-semibold text-white mb-2">
                   Email
                 </label>
                 <input
                   type="email"
+                  id="home-email"
+                  autoComplete="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
@@ -177,11 +145,13 @@ const Contact = () => {
                 />
               </div> */}
               <div>
-                <label className="block text-sm font-semibold text-white mb-2">
+                <label htmlFor="home-phone" className="block text-sm font-semibold text-white mb-2">
                   Phone
                 </label>
                 <input
                   type="tel"
+                  id="home-phone"
+                  autoComplete="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
@@ -191,11 +161,12 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-white mb-2">
+                <label htmlFor="home-project-type" className="block text-sm font-semibold text-white mb-2">
                   Project Type
                 </label>
                 <select
                   name="projectType"
+                  id="home-project-type"
                   value={formData.projectType}
                   onChange={handleChange}
                   required
@@ -216,29 +187,31 @@ const Contact = () => {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-semibold text-white mb-2">
+                <label htmlFor="home-budget" className="block text-sm font-semibold text-white mb-2">
                   Budget Range
                 </label>
                 <select
                   name="budget"
+                  id="home-budget"
                   value={formData.budget}
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-2 border border-cyan-400/30 rounded-lg bg-navy-950 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
                 >
                   <option value="" disabled>Select budget range</option>
-                  <option value="$4,900 - $9,900">$4,900 - $9,900</option>
-                  <option value="$10,000 - $24,900">$10,000 - $24,900</option>
-                  <option value="$25,000 - $49,900">$25,000 - $49,900</option>
-                  <option value="$50,000+">$50,000+</option>
+                  <option value="₹8,000 - ₹15,000">₹8,000 - ₹15,000</option>
+                  <option value="₹18,000 - ₹35,000">₹18,000 - ₹35,000</option>
+                  <option value="₹25,000 - ₹80,000">₹25,000 - ₹80,000</option>
+                  <option value="₹80,000+">₹80,000+</option>
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-white mb-2">
+                <label htmlFor="home-timeline" className="block text-sm font-semibold text-white mb-2">
                   Timeline
                 </label>
                 <select
                   name="timeline"
+                  id="home-timeline"
                   value={formData.timeline}
                   onChange={handleChange}
                   required
@@ -255,11 +228,12 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-white mb-2">
+              <label htmlFor="home-message" className="block text-sm font-semibold text-white mb-2">
                 Project Details
               </label>
               <textarea
                 name="message"
+                id="home-message"
                 value={formData.message}
                 onChange={handleChange}
                 rows={5}

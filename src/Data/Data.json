@@ -33,34 +33,58 @@
     "subHeading": "We offer comprehensive web solutions tailored to elevate your online presence and drive results.",
     "services": [
       {
+        "slug": "pre-defined-portfolio",
         "icon": "Code2",
         "title": "Portfolio Site (Pre-defined)",
-        "description": "Launch a polished portfolio site fast with CMS included and 3 months support."
+        "description": "Launch a polished portfolio site fast with CMS included and 3 months support.",
+        "deliverables": ["Responsive portfolio website", "CMS setup", "Contact form and analytics", "Three months of launch support"],
+        "process": ["Choose a proven layout", "Provide content and brand assets", "Review the configured site", "Launch with analytics"],
+        "faqs": [{"question": "Can the layout be customized?", "answer": "We tailor colors, typography, content, and imagery while keeping the proven page structure."}]
       },
       {
+        "slug": "custom-portfolio",
         "icon": "Palette",
         "title": "Portfolio Site (Custom Design)",
-        "description": "Custom visual design for your portfolio with CMS and business-ready polish."
+        "description": "Custom visual design for your portfolio with CMS and business-ready polish.",
+        "deliverables": ["Custom interface design", "Responsive development", "CMS setup", "Performance optimization"],
+        "process": ["Discovery and visual direction", "Wireframes and content planning", "Design and development", "Quality assurance and launch"],
+        "faqs": [{"question": "Will I be able to update the site?", "answer": "Yes. The handoff includes an editable CMS and guidance for routine content updates."}]
       },
       {
+        "slug": "landing-page",
         "icon": "Zap",
         "title": "Landing Page",
-        "description": "High-converting landing pages built for fast launches and lead capture."
+        "description": "High-converting landing pages built for fast launches and lead capture.",
+        "deliverables": ["Conversion-focused page design", "Responsive build", "Lead capture integration", "Analytics setup"],
+        "process": ["Clarify the campaign goal", "Structure the message", "Design and build", "Test and launch"],
+        "faqs": [{"question": "Can you connect our CRM?", "answer": "Yes. We can connect supported form, email, analytics, and CRM tools during implementation."}]
       },
       {
+        "slug": "business-website",
         "icon": "Smartphone",
         "title": "Business Website",
-        "description": "Full business website development with responsive design and CMS support."
+        "description": "Full business website development with responsive design and CMS support.",
+        "deliverables": ["Content-led page architecture", "Custom responsive website", "CMS workflows", "SEO and analytics foundation"],
+        "process": ["Business and audience discovery", "Content and information architecture", "Design and development", "QA, training, and launch"],
+        "faqs": [{"question": "Do you help with content structure?", "answer": "Yes. We organize the site around visitor questions, business goals, and clear conversion paths."}]
       },
       {
+        "slug": "custom-mobile-app",
         "icon": "Package",
         "title": "Custom Mobile App",
-        "description": "Mobile app development for native-like experiences and high-engagement products."
+        "description": "Mobile app development for native-like experiences and high-engagement products.",
+        "deliverables": ["Product discovery", "Interface design", "Cross-platform application", "Release preparation"],
+        "process": ["Define the product scope", "Prototype key journeys", "Build in milestones", "Test and prepare release"],
+        "faqs": [{"question": "Can we begin with an MVP?", "answer": "Yes. We can prioritize the smallest coherent release and define later phases before development begins."}]
       },
       {
+        "slug": "crm-analytics-integration",
         "icon": "BarChart3",
         "title": "CRM + Analytics Integration",
-        "description": "Connect your website with CRM and analytics systems for smarter customer workflows."
+        "description": "Connect your website with CRM and analytics systems for smarter customer workflows.",
+        "deliverables": ["Tracking plan", "CRM integration", "Analytics configuration", "Workflow documentation"],
+        "process": ["Audit the current workflow", "Map events and data", "Configure integrations", "Validate and document"],
+        "faqs": [{"question": "Can you work with our existing website?", "answer": "Yes. We first review the current stack and recommend integrations that fit its capabilities."}]
       }
     ]
   },
@@ -166,45 +190,67 @@
     "projects": [
       {
         "id": 1,
+        "slug": "bugsy",
         "title": "Bugsy",
         "category": "Product",
         "description": "A scalable video platform with polished discovery and premium playback experiences.",
-        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
+        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png",
+        "year": "2025", "featured": true,
+        "overview": "Bugsy brings video discovery and playback into one cohesive, responsive product experience.",
+        "challenge": "The platform needed to make a growing media catalogue feel approachable without compromising the viewing experience.",
+        "approach": "We organized discovery around clear content hierarchy, reusable interface patterns, and a playback flow that stays focused on the media.",
+        "deliverables": ["Product interface system", "Responsive discovery experience", "Playback interface", "Reusable front-end components"],
+        "outcomes": ["A consistent experience across browsing and playback", "A scalable interface foundation for future catalogue growth"]
       },
       {
         "id": 2,
+        "slug": "pulse-commerce",
         "title": "Pulse Commerce",
         "category": "E-commerce",
         "description": "A conversion-focused storefront built for faster checkout and higher average order value.",
-        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
+        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png",
+        "year": "2025", "featured": true,
+        "overview": "Pulse Commerce is a streamlined storefront designed to help shoppers move from discovery to checkout with less friction.",
+        "challenge": "The shopping journey needed clearer product emphasis and a more direct path through cart and checkout decisions.",
+        "approach": "We simplified navigation, strengthened product hierarchy, and designed consistent purchase actions across screen sizes.",
+        "deliverables": ["Commerce UX direction", "Responsive storefront", "Product and cart templates", "Checkout handoff"],
+        "outcomes": ["A clearer shopping journey", "A reusable storefront system ready for catalogue expansion"]
       },
       {
         "id": 3,
+        "slug": "nexa-crm",
         "title": "Nexa CRM",
         "category": "Platform",
         "description": "A sales dashboard that surfaces action-ready insights and simplifies team workflows.",
-        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
+        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png",
+        "year": "2025", "overview": "Nexa CRM turns sales activity into a focused daily workspace.", "challenge": "Teams needed to find urgent opportunities without navigating dense reports.", "approach": "We prioritized action-ready signals and progressive detail across the dashboard.", "deliverables": ["Dashboard UX", "Design system", "Responsive application views"], "outcomes": ["Clearer daily priorities", "More consistent team workflows"]
       },
       {
         "id": 4,
+        "slug": "fieldguide",
         "title": "FieldGuide",
         "category": "Web Design",
         "description": "A storyteller-led marketing site with custom motion and polished conversion points.",
-        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
+        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png",
+        "year": "2025", "overview": "FieldGuide is a narrative marketing site that balances brand story with clear next steps.", "challenge": "The brand needed an expressive web presence without losing conversion clarity.", "approach": "We paired editorial layouts and restrained motion with repeated, contextual calls to action.", "deliverables": ["Content architecture", "Custom web design", "Motion direction", "Responsive development"], "outcomes": ["A distinctive digital story", "Clear conversion points throughout the experience"]
       },
       {
         "id": 5,
+        "slug": "scalehub",
         "title": "ScaleHub",
         "category": "Full Stack",
         "description": "A data-rich dashboard built for fast decision-making and easier product management.",
-        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
+        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png",
+        "year": "2025", "overview": "ScaleHub brings operational metrics and product work into a single management view.", "challenge": "Dense information had to remain useful without overwhelming teams.", "approach": "We grouped metrics by decision context and created repeatable patterns for filters, trends, and status.", "deliverables": ["Information architecture", "Dashboard interface", "Component library"], "outcomes": ["Faster access to relevant signals", "A consistent foundation for new dashboard modules"]
       },
       {
         "id": 6,
+        "slug": "launchpad",
         "title": "LaunchPad",
         "category": "Startup",
         "description": "A launch landing page designed to turn early traction into inbound interest.",
-        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png"
+        "image": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png",
+        "year": "2025", "overview": "LaunchPad gives an early-stage product a concise, credible launch presence.", "challenge": "The product needed to explain its value quickly while collecting meaningful early interest.", "approach": "We shaped the page around one promise, supporting proof, and a focused lead path.", "deliverables": ["Launch messaging structure", "Landing page design", "Responsive build", "Lead capture setup"], "outcomes": ["A confident launch narrative", "A direct path for prospective users to express interest"]
       }
     ],
     "buttons": {
@@ -359,19 +405,19 @@
         "links": [
           {
             "label": "Home",
-            "path": "#home"
+            "path": "/"
           },
           {
             "label": "Services",
-            "path": "#services"
+            "path": "/services"
           },
           {
             "label": "Portfolio",
-            "path": "#portfolio"
+            "path": "/work"
           },
           {
             "label": "Contact",
-            "path": "#contact"
+            "path": "/contact"
           }
         ]
       },
@@ -380,19 +426,19 @@
         "links": [
           {
             "label": "Web Design",
-            "path": "#services"
+            "path": "/services/pre-defined-portfolio"
           },
           {
             "label": "Development",
-            "path": "#services"
+            "path": "/services/business-website"
           },
           {
             "label": "E-Commerce",
-            "path": "#services"
+            "path": "/services/landing-page"
           },
           {
             "label": "Maintenance",
-            "path": "#services"
+            "path": "/services/crm-analytics-integration"
           }
         ]
       },
@@ -404,25 +450,18 @@
             "href": "mailto:contact.wiredcreations@gmail.com"
           },
           {
-            "label": "9355505920"
+            "label": "9355505920",
+            "href": "tel:+919355505920"
           },
           {
             "label": "A-168, Sector 63 Noida, Uttar Pradesh, India",
-            "path": "https://www.google.com/maps?sca_esv=7575179a13efdb84&output=search&q=noida+uttar+pradesh&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIetxLMeWi1u_d0OMRvkClUba76WL62NDKV-tuv6_wPYBCwn1PrrOfPs6OFYogAUA80FYHcjgwjxnZp9Em-qnZn8N88c_ebmPbIi63FSDmv95Pcf_otdXo9FeYCGsvCNv2WI4CnnNZPbkgsxmielkQhjj8RWID-Gg_V2mrX9CBwas9No3GlQ&entry=mc&ved=1t:200715&ictx=111"
+            "href": "https://www.google.com/maps/search/?api=1&query=Noida%2C%20Uttar%20Pradesh%2C%20India"
           }
         ]
       }
     },
     "disclaimer": " Wired Creations. All rights reserved.",
     "social": [
-      {
-        "label": "Facebook",
-        "url": "https://www.facebook.com/reg/?entry_point=login&next=https%3A%2F%2Fwww.facebook.com%2F"
-      },
-      {
-        "label": "Youtube",
-        "url": "https://www.youtube.com/feed/you"
-      },
       {
         "label": "Pinterest",
         "url": "https://in.pinterest.com/contactwiredcreations/"
@@ -437,45 +476,6 @@
       }
     ]
   },
-  "projects": [
-    {
-      "slug": "bugsy",
-      "title": "Bugsy",
-      "category": ["Product"],
-      "industry": "Media",
-      "year": "2025",
-      "thumbnail": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png",
-      "featured": true
-    },
-    {
-      "slug": "pulse-commerce",
-      "title": "Pulse Commerce",
-      "category": ["E-commerce"],
-      "industry": "Retail",
-      "year": "2025",
-      "thumbnail": "https://res.cloudinary.com/dwujwvqkv/image/upload/v1764242701/file_2025-11-27_11.16.46_w34snc.png",
-      "featured": false
-    }
-  ],
-
-  "servicesList": [
-    {
-      "slug": "web-design",
-      "title": "Web Design",
-      "description": "Design systems, landing pages, and brand-led interfaces."
-    },
-    {
-      "slug": "web-development",
-      "title": "Web Development",
-      "description": "Full-stack React and CMS builds with clean, fast code."
-    },
-    {
-      "slug": "ecommerce",
-      "title": "E-commerce",
-      "description": "Shopify and custom commerce sites designed to sell."
-    }
-  ],
-
   "blogPosts": [
     {
       "slug": "mvp-design",

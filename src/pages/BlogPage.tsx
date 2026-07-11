@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
-import { Footer } from '../components/Footer';
 import PageLayout from '../Layout/PageLayout';
 import data from '../Data/Data.json';
+import { Seo } from '../components/Seo';
+import type { BlogPost } from '../types/content';
 
-const posts = data.blogPosts || [];
+const posts = data.blogPosts as BlogPost[];
 
 export default function BlogPage() {
   return (
     <PageLayout>
+      <Seo title="Blog" description="Design, development, and digital product insights from Wired Creations." path="/blog" />
       <section className="bg-navy-950 pb-20">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
           <p className="text-sm uppercase tracking-[0.32em] text-cyan-400">Blog</p>
@@ -15,7 +17,7 @@ export default function BlogPage() {
           <p className="mt-6 max-w-2xl text-lg text-slate-300">Design, development, and agency lessons that help you move faster and launch stronger.</p>
 
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            {posts.map((post: any) => (
+            {posts.map((post) => (
               <article key={post.slug} className="rounded-[2rem] border border-cyan-400/10 bg-navy-950/70 p-8 transition hover:-translate-y-1 hover:border-cyan-400/20">
                 <span className="text-xs uppercase tracking-[0.32em] text-cyan-300">{post.category}</span>
                 <h2 className="mt-4 text-2xl font-semibold text-white">{post.title}</h2>
@@ -31,7 +33,6 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
-      <Footer />
     </PageLayout>
   );
 }

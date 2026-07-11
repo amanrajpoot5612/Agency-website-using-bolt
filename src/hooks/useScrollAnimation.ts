@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
-export const useScrollAnimation = (options = { threshold: 0.15 }) => {
+const defaultOptions = { threshold: 0.15 };
+
+export const useScrollAnimation = (options = defaultOptions) => {
   const ref = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
