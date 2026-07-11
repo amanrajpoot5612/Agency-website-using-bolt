@@ -19,7 +19,7 @@ const MainLayout = () => {
   };
 
   return (
-    <div className="bg-navy-950">
+    <div className="agency-site">
       <Seo {...data.siteCopy.seo.home} path="/" />
       <Navigation />
       <Hero onNavigate={handleNavigate} data={data.hero} />
